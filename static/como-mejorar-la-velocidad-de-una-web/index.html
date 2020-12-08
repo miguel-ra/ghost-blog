@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="google-site-verification" content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U">
+
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Cómo mejorar la velocidad de una web</title>
+  <meta name="description" content="En el día de hoy empezaré una serie de artículos en los que voy a hablar de la optimización de sitios web o WPO (Web Performance Optimization)">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png">
+
+  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css">
+
+  <link rel="canonical" href="http://www.miguelra.com/como-mejorar-la-velocidad-de-una-web/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="http://www.miguelra.com/como-mejorar-la-velocidad-de-una-web/amp/">
+    
+    <meta property="og:site_name" content="Miguel Rodríguez">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Cómo mejorar la velocidad de una web">
+    <meta property="og:description" content="En el día de hoy empezaré una serie de artículos en los que voy a hablar de la optimización de sitios web o WPO (Web Performance Optimization)">
+    <meta property="og:url" content="http://www.miguelra.com/como-mejorar-la-velocidad-de-una-web/">
+    <meta property="og:image" content="http://www.miguelra.com/content/images/2016/12/speed.jpg">
+    <meta property="article:published_time" content="2016-07-27T16:42:00.000Z">
+    <meta property="article:modified_time" content="2016-12-08T02:20:18.000Z">
+    <meta property="article:tag" content="Optimización">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cómo mejorar la velocidad de una web">
+    <meta name="twitter:description" content="En el día de hoy empezaré una serie de artículos en los que voy a hablar de la optimización de sitios web o WPO (Web Performance Optimization)">
+    <meta name="twitter:url" content="http://www.miguelra.com/como-mejorar-la-velocidad-de-una-web/">
+    <meta name="twitter:image" content="http://www.miguelra.com/content/images/2016/12/speed.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Miguel Rodríguez">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Optimización">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Miguel Rodríguez",
+        "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Miguel Rodríguez",
+        "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
+        "url": "http://www.miguelra.com/author/miguel/",
+        "sameAs": [],
+        "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
+    },
+    "headline": "Cómo mejorar la velocidad de una web",
+    "url": "http://www.miguelra.com/como-mejorar-la-velocidad-de-una-web/",
+    "datePublished": "2016-07-27T16:42:00.000Z",
+    "dateModified": "2016-12-08T02:20:18.000Z",
+    "image": "http://www.miguelra.com/content/images/2016/12/speed.jpg",
+    "keywords": "Optimización",
+    "description": "En el día de hoy empezaré una serie de artículos en los que voy a hablar de la optimización de sitios web o WPO (Web Performance Optimization)",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://www.miguelra.com"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../shared/ghost-url.min_v%3D037246b580.js"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "d1a707dee088"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Miguel Rodríguez" href="http://www.miguelra.com/rss/">
+</head>
+
+<body class="post-template tag-optimizacion">
+
+  
+  
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" style="background-image: url(../content/images/2016/12/speed.jpg)">
+
+    <div class="inner">
+        <div class="container">
+            <a class="brand light" href="http://www.miguelra.com" role="banner">
+                    <img src="../content/images/2016/11/logo.png" alt="Blog Logo">
+            </a>
+            <h1 class="blog-title light">
+                Miguel Rodríguez
+            </h1>
+            <h2 class="blog-description light bordered bordered-top">
+                
+            </h2>
+        </div>
+    </div>
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"/>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"/>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"/>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"/>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"/>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"/>
+
+        </svg>
+
+    </div>
+</header>
+
+  <div id="main" class="content" role="main">
+    <div class="container">
+
+      <div class="row">
+        <article class="post tag-optimizacion post post col-md-9">
+
+
+
+          <header class="post-header">
+            <h1 class="post-title text-center hyper lighter bordered-bottom">Cómo mejorar la velocidad de una web</h1>
+            <div class="post-info text-center small">
+              <time datetime="2016-07-27" class="post-time">27/07/2016</time>
+               en <span class="post-tags"><a href="../tag/optimizacion/">Optimización</a></span>
+            </div>
+          </header>
+          <div class="post-body bordered-bottom">
+            <div class="addthis_inline_share_toolbox"></div>
+            <p>En el día de hoy empezaré una serie de artículos en los que voy a hablar de la <strong>optimización de sitios web</strong> o <strong>WPO</strong> (Web Performance Optimization), iremos viendo como mejorar la velocidad, como detectar el problemas del tiempo de carga, fallos más comunes, como afecta al posicionamiento en buscadores… En resumen entender el contexto de la optimización, un tema que se ve afectado por demasiados factores y no tenemos demasiado en cuenta en el día a día, siendo uno de los pilares fundamentales de la web.</p>
+
+<h2 id="porquesimportantelaoptimizacinweb">¿Por qué es importante la optimización web?</h2>
+
+<p>Muchas veces cuando hacemos una web, no nos damos cuenta que lo más importante es crear una sensación acogedora para el usuario, mejorando el tiempo de carga conseguimos una mejor experiencia de usuarios y unos usuarios felices :D. También es muy importante a la hora del posicionamiento, los buscadores ya implementan en sus algoritmos el tiempo en el que una web tarda en enviar su primer byte (TTFB - Time To First Byte), así que si eres más rápido que la competencia tienes más "puntos" para estar en los primeros puestos.</p>
+
+<h2 id="quinfluyeenlavelocidaddecargadeunaweb">¿Qué influye en la velocidad de carga de una web?</h2>
+
+<p>Cuando decimos que una web carga lenta se pueden ver afectados muchos factores por eso voy a clasificarlo en 3 bloques:</p>
+
+<ul>
+<li>Front-end</li>
+<li>Back-end</li>
+<li>Servidor</li>
+</ul>
+
+<p>en los que vamos a ver a través de una serie de artículos todos los puntos importantes que tenemos que tener en cuenta a la hora de mejorar la velocidad de nuestra web, listados a continuación:</p>
+
+<h3 id="frontendmuchomsfcilesdeidentificar">Front-end (Mucho más fáciles de identificar)</h3>
+
+<p><strong>Minificar Javascript y CSS</strong></p>
+
+<p>Es buena practica pero a la hora, aunque ralentizar no afecta mucho pero todo suma y no nos cuesta nada.</p>
+
+<p><strong>Unificar Javascript y CSS</strong></p>
+
+<p>Si no estamos usando HTTP/2 es una buena opción para evitar muchas peticiones para solicitar los recursos.</p>
+
+<p><strong>CSS con muchos imports</strong></p>
+
+<p>Llegan a afectar mucho la velocidad de la web.</p>
+
+<p><strong>Orden de los css y javascript</strong> (Para que no bloqueen la carga de la web)</p>
+
+<p>Excepto en casos excepcionales todo el JS debería cargarse antes de </p></div></article></div></div></div></body> y evitar modificar el css con JS en la carga de la página.<p></p>
+
+<p><strong>Imágenes sin escalar ni optimizar</strong></p>
+
+<p>Puede llegar a ser muy engorroso, pero existen herramientas que veremos cuando profundicemos en el tema.</p>
+
+<p><strong>Muchas librerías</strong></p>
+
+<p>Cuantas menos librerías de terceros implementemos que ralentiza la velocidad de carga, conseguiremos que el tiempo que está el usuarios esperando con la página en blanco sea menor.</p>
+
+<p><strong>Cache de navegador</strong></p>
+
+<p><strong>Precargar contenido</strong> (Preconnect, Prefetch, Prerender)</p>
+
+<p>Con estas opciones de html podemos indicar que el navegador cargue los assets o página específicas antes de visitarlas.</p>
+
+<p>Un pequeño ejemplo de como agregar de manera asíncrona un elemento desde javascript:</p>
+
+<pre><code class="language-javascript">var linkElement =  document.createElement("link");  
+linkElement.setAttribute("rel", "prerender");  
+linkElement.setAttribute("href", "next-page.html");
+
+document.getElementsByTagName('head')[0].appendChild(linkElement);  
+</code></pre>
+
+<p><strong>AMP</strong></p>
+
+<p>Framework HTML, que permite implementar webs mas rápidas, pensado para páginas de publicaciones visitadas desde móvil.</p>
+
+<h3 id="backend">Back-end</h3>
+
+<p><strong>Optimizar consultas a base de datos</strong></p>
+
+<p>Uno del los puntos más importantes, si detectamos una consulta lenta hay que solucionar cuanto antes.</p>
+
+<p><strong>Compresión de archivos</strong></p>
+
+<p>Cuanto más reduzcamos los datos que tenemos que enviar va a ser mejor.</p>
+
+<p><strong>TTFB</strong> (Time to First Byte)</p>
+
+<p>El tiempo que tarda el servidor en empezar a enviar el contenido que se ve afectado por la infraestructura del hosting o problemas de programación (cálculos costosos, consultas a base de datos …).</p>
+
+<h3 id="servidor">Servidor</h3>
+
+<p><strong>Hardware</strong></p>
+
+<p>Por ejemplo un disco SSD - 600 veces más rápido que uno HDD, mejora la velocidad en consultas de base de datos, acceso a disco …</p>
+
+<p><strong>Cambiar de servidor web</strong></p>
+
+<p>Migrar de apache a nginx (servidor web de alto rendimiento).</p>
+
+<p><strong>Balanceador de carga</strong> (hardware/software)</p>
+
+<p><strong>Apache FPM</strong> (FastCGI Process Manager)</p>
+
+<p>En el caso de usar apache tener bien configurado el gestor de procesos de php bien configurado, lo que puede mejorar hasta 10% la velocidad respecto a la version estándar CGI.</p>
+
+<p><em>*Sistema cache de servidor *</em></p>
+
+<p><strong>HTTP/2</strong></p>
+
+<p>Nueva versión de HTTP del que he hablado en<a href="../como-funciona-el-protocolo-http/"> <a href="http://miguelra.com/como-funciona-el-protocolo-http/">http://miguelra.com/como-funciona-el-protocolo-http/</a></a> en el que vimos que recibe todos los recursos con una sola petición y mantiene la conexión abierta con el servidor en todo momento.</p>
+
+<p><strong>CDN</strong> (Content Delivery Network)</p>
+
+<p>Como indica el nombre es una red que distribuye el contenido por todo el mundo para estar mas cerca de lo solicitud del usuario, consiguiendo así una aceleración del sitio.</p>
+
+<p>Seguiremos avanzando en estos temas en próximos artículos, por el momento os dejo unas herramientas con las que poder analizar posibles problemas de nuestra web.</p>
+
+<h2 id="herramientasparaanalizarrendimientoweb">Herramientas para analizar rendimiento web</h2>
+
+<p>Iremos viendo más herramientas en cada uno de los artículos de esta serie para cada tema, de todos modos dejo esta pequeña lista de herramientas básicas.</p>
+
+<h3 id="frontend">Front-end</h3>
+
+<p><strong>PageSpeed Insights</strong> <a href="https://developers.google.com/speed/pagespeed/insights/">(enlace)</a></p>
+
+<p>Detecta errores tanto de rendimiento como experiencia de usuario, en función de las reglas que establece google a la hora de posicionar una web.</p>
+
+<p><img src="../content/images/2016/12/Captura-de-pantalla-2016-07-30-a-las-20.41.15.png" alt="Opmitimización de elementos google page insight"></p>
+
+<p>Y como vemos en esta captura, nos ofrece los recursos ya optimizados para subir a nuestro servidor.</p>
+
+<p><strong>Gtmetrix</strong> (<a href="https://gtmetrix.com/">https://gtmetrix.com/</a>) - Analiza una web y te dice donde mejorar.</p>
+
+<p><strong>Webpagetest</strong> (<a href="http://www.webpagetest.org/">http://www.webpagetest.org/</a>) - Analiza la carga de la web y como mejorar.</p>
+
+<h3 id="backend">Back-end</h3>
+
+<p><strong>Blackfire</strong> (<a href="https://blackfire.io/">https://blackfire.io/</a>)</p>
+
+<p>Agente que sirve para testear cuanto tiempo tarda cada proceso de php (Conectarse a la base de datos, controlador, vista) y detectar cuellos de botella.</p>
+
+<h3 id="servidor">Servidor</h3>
+
+<p><strong>HAProxy</strong> - Balanceador de carga</p>
+
+<p><strong>Varnish cache</strong> - Sistema cache de servidor</p>
+          
+
+          <footer class="post-footer">
+
+            <div class="post-share text-center">
+              <p class="light">
+                ¿Te ha gustado este artículo? compartelo para que más gente también pueda leerlo ☺️
+              </p>
+              <div class="addthis_inline_share_toolbox_ypuz"></div>
+            </div>
+
+            <div class="post-author text-center">
+
+                  <img src="../content/images/2016/11/profile.jpg" itemprop="image" class="post-avatar img-circle img-responsive">
+                <h4 class="bordered-bottom">Miguel Rodríguez</h4>
+                <p>¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas.</p>
+            </div>
+
+            <div class="post-comments text-center">
+              <div id="disqus_thread"></div>
+              <script>
+                (function() { // DON'T EDIT BELOW THIS LINE
+                  var d = document,
+                    s = d.createElement('script');
+                  s.src = '//miguelra.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                })();
+              </script>
+            </div>
+
+          </footer>
+
+        
+      
+    
+  
+
+  <div class="reading-time-indicator js-post-sticky-footer">
+    <div class="post-reading-time visible js-post-reading-time">
+      <div class="percent js-percent-count">0%</div>
+      <progress value="0" class="read-progress-indicator single">
+          <div class="progress-container">
+            <span class="progress-bar"></span>
+          </div>
+      </progress>
+      <div class="read-estimation">
+        <div class="read-estimation-content">
+          <div class="title">Cómo mejorar la velocidad de una web</div>
+          <div class="estimated-time">
+            <span class="js-word-count"></span> palabras - <span class="eta"></span>.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="js-prev-next-post prev-next-post">
+      <div class="prev-block">
+          <a href="../que-son-las-promesas-y-generadores/">
+            <span class="image">
+                <img src="../content/images/2016/12/javascript-2.jpg" class="post-image-thumbnail">
+            </span>
+            <span class="description">
+              <span class="prev-next-label">Anterior</span>
+              <span class="post-title">¿Qué son las promesas y generadores?</span>
+            </span>
+          </a>
+      </div>
+      <div class="next-block">
+          <a href="../como-optimizar-la-velocidad-de-la-base-de-datos/">
+            <span class="image">
+              <img src="../content/images/2016/12/database.jpg" class="post-image-thumbnail">
+            </span>
+            <span class="description">
+              <span class="prev-next-label">Siguiente</span>
+              <span class="post-title">¿Cómo optimizar la velocidad de la base de datos?</span>
+            </span>
+          </a>
+      </div>
+    </div>
+  </div>
+
+
+<footer id="footer" class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(../content/images/2016/12/background-coding.jpg)">
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+              <li>
+                 <a href="https://github.com/miguel-ra">
+                      <i class="icon-github"></i>
+                  </a>
+              </li>
+              <li>
+                 <a href="http://codepen.io/miguelra/">
+                      <i class="icon-codepen"></i>
+                  </a>
+              </li>
+              <li>
+                 <a href="https://twitter.com/theRollerShark">
+                      <i class="icon-twitter"></i>
+                  </a>
+              </li>
+              <li>
+                 <a href="http://www.facebook.com/miguelrodriguezamarelle">
+                      <i class="icon-facebook"></i>
+                  </a>
+              </li>
+              <li>
+                 <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
+                      <i class="icon-linkedin"></i>
+                  </a>
+              </li>
+            </ul>
+            <p class="copy-text">
+              Copyright © 2016 MiguelRA.
+            </p>
+        </div>
+    </div>
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"/>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"/>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"/>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"/>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"/>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"/>
+
+            </svg>
+        </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44786119-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"></script>
+  <script type="text/javascript">
+    var load = (function () {
+      function _load(tag) {
+        return function (url) {
+          // This promise will be used by Promise.all to determine success or failure
+          return new Promise(function (resolve, reject) {
+            var element = document.createElement(tag);
+            var parent = 'body';
+            var attr = 'src';
+
+            // Important success and error for the promise
+            element.onload = function () {
+              resolve(url);
+            };
+            element.onerror = function () {
+              reject(url);
+            };
+
+            // Need to set different attributes depending on tag type
+            switch (tag) {
+              case 'script':
+                element.async = true;
+                break;
+              case 'link':
+                element.type = 'text/css';
+                element.rel = 'stylesheet';
+                attr = 'href';
+                parent = 'head';
+            }
+
+            // Inject into document to kick off loading
+            element[attr] = url;
+            document[parent].appendChild(element);
+          });
+        };
+      }
+
+      return {
+        css: _load('link'),
+        js: _load('script')
+      }
+    })();
+
+
+    (function loadFiles() {
+      load.css('/assets/vendor/prism/css/prism.css?v=037246b580');
+      load.css('/assets/vendor/sweetalert/sweetalert.css?v=037246b580');
+
+      Promise.all([
+        load.js('/assets/vendor/polyfills/fetch.min.js?v=037246b580'),
+        load.js('/assets/vendor/waypoints/waypoints.min.js?v=037246b580'),
+        load.js('/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580'),
+        load.js('/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580'),
+        load.js('/assets/vendor/readingtime/readingtime.min.js?v=037246b580'),
+        load.js('/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580'),
+        load.js('/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580'),
+        load.js('https://cookies.miguelra.com/miguelraCookies.js')
+      ]).then(function () {
+        load.js('/assets/js/script.js?v=037246b580').then(function () {
+          load.js('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1');
+          load.js('/assets/vendor/prism/js/prism.min.js?v=037246b580');
+          miguelraCookies({ server: "miguelra.com", color: "666666" });
+        });
+      });
+    }());
+  </script>
+
+
+</html>
