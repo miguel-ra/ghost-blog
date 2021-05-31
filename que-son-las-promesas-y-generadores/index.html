@@ -1,160 +1,253 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta
+      name="google-site-verification"
+      content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U"
+    />
 
-<head>
-  <meta name="google-site-verification" content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>¿Qué son las promesas y generadores?</title>
+    <meta
+      name="description"
+      content="Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo"
+    />
 
-  <title>¿Qué son las promesas y generadores?</title>
-  <meta name="description" content="Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png" />
 
-  <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css" />
 
-  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css">
+    <link
+      rel="canonical"
+      href="http://www.miguelra.com/que-son-las-promesas-y-generadores/"
+    />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link
+      rel="amphtml"
+      href="http://www.miguelra.com/que-son-las-promesas-y-generadores/amp/"
+    />
 
-  <link rel="canonical" href="http://www.miguelra.com/que-son-las-promesas-y-generadores/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://www.miguelra.com/que-son-las-promesas-y-generadores/amp/">
-    
-    <meta property="og:site_name" content="Miguel Rodríguez">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="¿Qué son las promesas y generadores?">
-    <meta property="og:description" content="Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo">
-    <meta property="og:url" content="http://www.miguelra.com/que-son-las-promesas-y-generadores/">
-    <meta property="og:image" content="http://www.miguelra.com/content/images/2016/12/javascript-2.jpg">
-    <meta property="article:published_time" content="2016-06-16T19:02:00.000Z">
-    <meta property="article:modified_time" content="2016-12-07T17:41:49.000Z">
-    <meta property="article:tag" content="Javascript">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="¿Qué son las promesas y generadores?">
-    <meta name="twitter:description" content="Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo">
-    <meta name="twitter:url" content="http://www.miguelra.com/que-son-las-promesas-y-generadores/">
-    <meta name="twitter:image" content="http://www.miguelra.com/content/images/2016/12/javascript-2.jpg">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Miguel Rodríguez">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript">
-    
+    <meta property="og:site_name" content="Miguel Rodríguez" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="¿Qué son las promesas y generadores?" />
+    <meta
+      property="og:description"
+      content="Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo"
+    />
+    <meta
+      property="og:url"
+      content="http://www.miguelra.com/que-son-las-promesas-y-generadores/"
+    />
+    <meta
+      property="og:image"
+      content="http://www.miguelra.com/content/images/2016/12/javascript-2.jpg"
+    />
+    <meta
+      property="article:published_time"
+      content="2016-06-16T19:02:00.000Z"
+    />
+    <meta property="article:modified_time" content="2016-12-07T17:41:49.000Z" />
+    <meta property="article:tag" content="Javascript" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="¿Qué son las promesas y generadores?" />
+    <meta
+      name="twitter:description"
+      content="Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo"
+    />
+    <meta
+      name="twitter:url"
+      content="http://www.miguelra.com/que-son-las-promesas-y-generadores/"
+    />
+    <meta
+      name="twitter:image"
+      content="http://www.miguelra.com/content/images/2016/12/javascript-2.jpg"
+    />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Miguel Rodríguez" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
+
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Miguel Rodríguez",
-        "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Miguel Rodríguez",
-        "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
-        "url": "http://www.miguelra.com/author/miguel/",
-        "sameAs": [],
-        "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
-    },
-    "headline": "¿Qué son las promesas y generadores?",
-    "url": "http://www.miguelra.com/que-son-las-promesas-y-generadores/",
-    "datePublished": "2016-06-16T19:02:00.000Z",
-    "dateModified": "2016-12-07T17:41:49.000Z",
-    "image": "http://www.miguelra.com/content/images/2016/12/javascript-2.jpg",
-    "keywords": "Javascript",
-    "description": "Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://www.miguelra.com"
-    }
-}
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Miguel Rodríguez",
+          "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Miguel Rodríguez",
+          "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
+          "url": "http://www.miguelra.com/author/miguel/",
+          "sameAs": [],
+          "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
+        },
+        "headline": "¿Qué son las promesas y generadores?",
+        "url": "http://www.miguelra.com/que-son-las-promesas-y-generadores/",
+        "datePublished": "2016-06-16T19:02:00.000Z",
+        "dateModified": "2016-12-07T17:41:49.000Z",
+        "image": "http://www.miguelra.com/content/images/2016/12/javascript-2.jpg",
+        "keywords": "Javascript",
+        "description": "Es un objeto que indica el compromiso de entregar una respuesta, resultante de una llamada asíncrona. Veamos un ejemplo",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "http://www.miguelra.com"
+        }
+      }
     </script>
 
-    <script type="text/javascript" src="../shared/ghost-url.min_v%3D037246b580.js"></script>
-<script type="text/javascript">
-ghost.init({
-	clientId: "ghost-frontend",
-	clientSecret: "d1a707dee088"
-});
-</script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Miguel Rodríguez" href="http://www.miguelra.com/rss/">
-</head>
+    <script
+      type="text/javascript"
+      src="../shared/ghost-url.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      ghost.init({
+        clientId: "ghost-frontend",
+        clientSecret: "d1a707dee088",
+      });
+    </script>
+    <meta name="generator" content="Ghost 0.11" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Miguel Rodríguez"
+      href="http://www.miguelra.com/rss/"
+    />
+  </head>
 
-<body class="post-template tag-javascript">
-
-  
-  
-
-<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" style="background-image: url(../content/images/2016/12/javascript-2.jpg)">
-
-    <div class="inner">
+  <body class="post-template tag-javascript">
+    <header
+      id="masthead"
+      class="
+        blog-background
+        overlay
+        align-center align-middle
+        animated
+        from-bottom
+      "
+      style="background-image: url(../content/images/2016/12/javascript-2.jpg)"
+    >
+      <div class="inner">
         <div class="container">
-            <a class="brand light" href="http://www.miguelra.com" role="banner">
-                    <img src="../content/images/2016/11/logo.png" alt="Blog Logo">
-            </a>
-            <h1 class="blog-title light">
-                Miguel Rodríguez
-            </h1>
-            <h2 class="blog-description light bordered bordered-top">
-                
-            </h2>
+          <a class="brand light" href="http://www.miguelra.com" role="banner">
+            <img src="../content/images/2016/11/logo.png" alt="Blog Logo" />
+          </a>
+          <h1 class="blog-title light">Miguel Rodríguez</h1>
+          <h2 class="blog-description light bordered bordered-top"></h2>
         </div>
-    </div>
-    <div class="decor-wrapper">
-        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="header-decor"
+          class="decor bottom"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"/>
-            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="medium left"
+            d="M0 100 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 100 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
 
-            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"/>
-            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"/>
+          <path
+            class="small left"
+            d="M0 100 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 100 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
 
-            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"/>
+          <path
+            d="M0 99.9 L50 49.9 L100 99.9 L0 99.9"
+            fill="rgba(255,255,255, 1)"
+          />
 
-            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"/>
-
+          <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)" />
         </svg>
+      </div>
+    </header>
 
-    </div>
-</header>
+    <div id="main" class="content" role="main">
+      <div class="container">
+        <div class="row">
+          <article class="post tag-javascript post post col-md-9">
+            <header class="post-header">
+              <h1 class="post-title text-center hyper lighter bordered-bottom">
+                ¿Qué son las promesas y generadores?
+              </h1>
+              <div class="post-info text-center small">
+                <time datetime="2016-06-16" class="post-time">16/06/2016</time>
+                en
+                <span class="post-tags"
+                  ><a href="../tag/javascript/">Javascript</a></span
+                >
+              </div>
+            </header>
+            <div class="post-body bordered-bottom">
+              <div class="addthis_inline_share_toolbox"></div>
+              <p>
+                Hasta la llegada de la nueva API en ES2015 (La nueva versión de
+                Javascript), si queríamos usar de la
+                <strong>programación asíncrona</strong> teníamos que hacerlo a
+                través de <strong>Callbacks</strong>, lo que implicaba una serie
+                de problemas:
+              </p>
 
-  <div id="main" class="content" role="main">
-    <div class="container">
+              <ul>
+                <li>
+                  <a
+                    href="https://es.wikipedia.org/wiki/Inversi%C3%B3n_de_control"
+                    >Inversion del control</a
+                  >
+                </li>
+                <li>Confusion de los inputs con los outputs</li>
+                <li>Errores más complejos de manejar</li>
+                <li>Código se vuelve difícil seguir leer y mantener</li>
+              </ul>
 
-      <div class="row">
-        <article class="post tag-javascript post post col-md-9">
+              <p>
+                Si profundizamos en estos problemas nos encontramos callbacks
+                que dependen de la salida de otros callbacks,
+                <strong>"Callback hell"</strong> o el infierno de los callbacks
+                :D. Vamos a entender mejor este concepto con un ejemplo,
+                imaginemos que queremos programar los pasos para crear una
+                pizza. El objetivo de este programilla es saber el tiempo de
+                preparación de una pizza.
+              </p>
 
-
-
-          <header class="post-header">
-            <h1 class="post-title text-center hyper lighter bordered-bottom">¿Qué son las promesas y generadores?</h1>
-            <div class="post-info text-center small">
-              <time datetime="2016-06-16" class="post-time">16/06/2016</time>
-               en <span class="post-tags"><a href="../tag/javascript/">Javascript</a></span>
-            </div>
-          </header>
-          <div class="post-body bordered-bottom">
-            <div class="addthis_inline_share_toolbox"></div>
-            <p>Hasta la llegada de la nueva API en ES2015 (La nueva versión de Javascript), si queríamos usar de la <strong>programación asíncrona</strong> teníamos que hacerlo a través de <strong>Callbacks</strong>, lo que implicaba una serie de problemas:</p>
-
-<ul>
-<li><a href="https://es.wikipedia.org/wiki/Inversi%C3%B3n_de_control">Inversion del control</a></li>
-<li>Confusion de los inputs con los outputs</li>
-<li>Errores más complejos de manejar</li>
-<li>Código se vuelve difícil seguir leer y mantener</li>
-</ul>
-
-<p>Si profundizamos en estos problemas nos encontramos callbacks que dependen de la salida de otros callbacks, <strong>"Callback hell"</strong> o el infierno de los callbacks :D. Vamos a entender mejor este concepto con un ejemplo, imaginemos que queremos programar los pasos para crear una pizza. El objetivo de este programilla es saber el tiempo de preparación de una pizza. </p>
-
-<pre><code class="language-javascript">// Función que devuelve una función que simula un comportamiento asincrono
+              <pre><code class="language-javascript">// Función que devuelve una función que simula un comportamiento asincrono
 const _cookService = function(){  
   return function(callback){
     // Generamos un número entre 1 y 5 para simular un código asincrono
@@ -194,9 +287,13 @@ cookService.prepararMasa(function(a) {
 }); 
 </code></pre>
 
-<p>Como necesitamos obtener  el tiempo final de cocinado tenemos que ir encadenando callbacks para poder ir obteniendo los tiempos de cada paso y poder realizar la suma total. </p>
+              <p>
+                Como necesitamos obtener  el tiempo final de cocinado tenemos
+                que ir encadenando callbacks para poder ir obteniendo los
+                tiempos de cada paso y poder realizar la suma total.
+              </p>
 
-<pre><code class="language-javascript">cookService.prepararMasa(function(a) {  
+              <pre><code class="language-javascript">cookService.prepararMasa(function(a) {  
   cookService.reposarMasa(function(b) {
     cookService.estirarMasa(function(c) {
       cookService.anadirIngredientes(function(d) {
@@ -210,14 +307,26 @@ cookService.prepararMasa(function(a) {
 }); 
 </code></pre>
 
-<p>Aún eliminando los comentarios, vemos que el código es bastante lioso de seguir y si queremos agregar un nuevo paso intermedio sería engorroso. Os dejo el código en <a href="http://jsbin.com/sacago/edit?js,console">JS Bin</a> En este artículo vamos a profundizar en los nuevos modelos para realizar programación asíncrona <strong>Modelo de promesas</strong> y <strong>Modelo de generadores</strong></p>
+              <p>
+                Aún eliminando los comentarios, vemos que el código es bastante
+                lioso de seguir y si queremos agregar un nuevo paso intermedio
+                sería engorroso. Os dejo el código en
+                <a href="http://jsbin.com/sacago/edit?js,console">JS Bin</a> En
+                este artículo vamos a profundizar en los nuevos modelos para
+                realizar programación asíncrona
+                <strong>Modelo de promesas</strong> y
+                <strong>Modelo de generadores</strong>
+              </p>
 
-<h2 id="quesunapromesa">¿Qué es una Promesa?</h2>
+              <h2 id="quesunapromesa">¿Qué es una Promesa?</h2>
 
-<p>Es un objeto que indica el compromiso de entregar una respuesta, resultante <br>
-de una llamada asíncrona. </p>
+              <p>
+                Es un objeto que indica el compromiso de entregar una respuesta,
+                resultante <br />
+                de una llamada asíncrona.
+              </p>
 
-<pre><code class="language-javascript">// Creamos una promesa
+              <pre><code class="language-javascript">// Creamos una promesa
 var promise = new Promise(
 
     function(resolve, reject) {
@@ -248,13 +357,23 @@ promise
   });
 </code></pre>
 
-<p>En este ejemplo vemos como es la creación de una promesa, como ejecutarla y recibir la respuesta o el error, os dejo el código en <a href="http://jsbin.com/sizucuj/edit?js,console">JS Bin</a></p>
+              <p>
+                En este ejemplo vemos como es la creación de una promesa, como
+                ejecutarla y recibir la respuesta o el error, os dejo el código
+                en <a href="http://jsbin.com/sizucuj/edit?js,console">JS Bin</a>
+              </p>
 
-<h2 id="cargandoimagendinamicamenteconpromesas">Cargando imagen dinamicamente con promesas</h2>
+              <h2 id="cargandoimagendinamicamenteconpromesas">
+                Cargando imagen dinamicamente con promesas
+              </h2>
 
-<p>Ahora que nos vamos familiarizando con el tema en este ejemplo voy a usar la sintaxis de ES2015, como podemos ver la sintaxis de =>, hace un código más limpio y claro. </p>
+              <p>
+                Ahora que nos vamos familiarizando con el tema en este ejemplo
+                voy a usar la sintaxis de ES2015, como podemos ver la sintaxis
+                de =>, hace un código más limpio y claro.
+              </p>
 
-<pre><code class="language-javascript">// ES2015
+              <pre><code class="language-javascript">// ES2015
 const loadImage = (src) =&gt; {  
   return new Promise((resolve, reject) =&gt; {
     const img = new Image();
@@ -270,13 +389,19 @@ loadImage("https://pbs.twimg.com/profile_images/690292020762533889/uoHuCXbd.jpg"
 );
 </code></pre>
 
-<p>En este código carga una imagen de manera asíncrona en cuanto se resuelve la promesa, os dejo el código en <a href="http://jsbin.com/wubeyo/edit?js,output">JS Bin</a></p>
+              <p>
+                En este código carga una imagen de manera asíncrona en cuanto se
+                resuelve la promesa, os dejo el código en
+                <a href="http://jsbin.com/wubeyo/edit?js,output">JS Bin</a>
+              </p>
 
-<h2 id="encadenandopromesas">Encadenando promesas</h2>
+              <h2 id="encadenandopromesas">Encadenando promesas</h2>
 
-<p>Y por último vamos a retomar el ejemplo de como crear una pizza </p>
+              <p>
+                Y por último vamos a retomar el ejemplo de como crear una pizza
+              </p>
 
-<pre><code class="language-javascript">const _cookService = function(){  
+              <pre><code class="language-javascript">const _cookService = function(){  
   return function(){
     // Generamos un número entre 1 y 5 para simular un código asincrono
     const timeSpend = (Math.random() * 5) + 1;
@@ -324,46 +449,89 @@ cookService.prepararMasa()
   } );
 </code></pre>
 
-<p>El funcionamiento es el siguiente:</p>
+              <p>El funcionamiento es el siguiente:</p>
 
-<ul>
-<li>Creamos las promesas para cada paso de la preparación de la pizza</li>
-<li>Y empezamos a encadenar el resultado de las promesas</li>
-</ul>
+              <ul>
+                <li>
+                  Creamos las promesas para cada paso de la preparación de la
+                  pizza
+                </li>
+                <li>Y empezamos a encadenar el resultado de las promesas</li>
+              </ul>
 
-<p>Os dejo el código en <a href="http://jsbin.com/dubaka/edit?js,console">JS Bin</a></p>
+              <p>
+                Os dejo el código en
+                <a href="http://jsbin.com/dubaka/edit?js,console">JS Bin</a>
+              </p>
 
-<h2 id="lobuenoylomalodeusarpromesas">Lo bueno y lo malo de usar promesas</h2>
+              <h2 id="lobuenoylomalodeusarpromesas">
+                Lo bueno y lo malo de usar promesas
+              </h2>
 
-<p>El uso de promesas nos ofrece grandes beneficios, aunque su uso puede llegar a ser artificial e incomodo de tratar <strong>Ventajas</strong></p>
+              <p>
+                El uso de promesas nos ofrece grandes beneficios, aunque su uso
+                puede llegar a ser artificial e incomodo de tratar
+                <strong>Ventajas</strong>
+              </p>
 
-<ul>
-<li>Recuperamos el <em>return</em> y la asignación</li>
-<li>APIs más limpias sin métodos de <em>callback</em> (<em>callback</em> en cliente)</li>
-<li>Estructura del programa más similar a la programación secuencial</li>
-<li>Razonamos con promesas como valores de futuro</li>
-</ul>
+              <ul>
+                <li>Recuperamos el <em>return</em> y la asignación</li>
+                <li>
+                  APIs más limpias sin métodos de <em>callback</em> (<em
+                    >callback</em
+                  >
+                  en cliente)
+                </li>
+                <li>
+                  Estructura del programa más similar a la programación
+                  secuencial
+                </li>
+                <li>Razonamos con promesas como valores de futuro</li>
+              </ul>
 
-<p><strong>Inconvenientes</strong></p>
+              <p><strong>Inconvenientes</strong></p>
 
-<ul>
-<li>No deja de ser necesario inyectar funciones manejadoras de éxito y error</li>
-<li>Resulta difícil depurar hasta que las promesas no se han resuelto</li>
-<li>Resulta más invasivo generar APIs que consuman y generen promesas</li>
-</ul>
+              <ul>
+                <li>
+                  No deja de ser necesario inyectar funciones manejadoras de
+                  éxito y error
+                </li>
+                <li>
+                  Resulta difícil depurar hasta que las promesas no se han
+                  resuelto
+                </li>
+                <li>
+                  Resulta más invasivo generar APIs que consuman y generen
+                  promesas
+                </li>
+              </ul>
 
-<h2 id="queesungenerador">¿Que es un generador?</h2>
+              <h2 id="queesungenerador">¿Que es un generador?</h2>
 
-<p>Un generador es una función que puede ser interrumpida y retomada en cualquier momento, al pausarlo el programa sigue su curso, no bloquea la ejecución. La función generadora no se ejecuta inmediatamente, esta función se define de la siguiente forma:</p>
+              <p>
+                Un generador es una función que puede ser interrumpida y
+                retomada en cualquier momento, al pausarlo el programa sigue su
+                curso, no bloquea la ejecución. La función generadora no se
+                ejecuta inmediatamente, esta función se define de la siguiente
+                forma:
+              </p>
 
-<pre><code class="language-javascript">function* nombre([param[, param[, ... param]]]) {  
+              <pre><code class="language-javascript">function* nombre([param[, param[, ... param]]]) {  
    instrucciones
 }
 </code></pre>
 
-<p>La función devuelve un objeto <strong>iterador</strong>, y cuando llamamos al <code>next()</code> del iterador, se devuelve el valor del primer <code>yield</code>. <em>*¿Qué es un iterador? *</em>Un iterador es objeto que es iterable <del>(valga la redundancia :D)</del>, es decir una colección que se puede recorrer y mantiene la referencia a la posición actual. </p>
+              <p>
+                La función devuelve un objeto <strong>iterador</strong>, y
+                cuando llamamos al <code>next()</code> del iterador, se devuelve
+                el valor del primer <code>yield</code>.
+                <em>*¿Qué es un iterador? *</em>Un iterador es objeto que es
+                iterable <del>(valga la redundancia :D)</del>, es decir una
+                colección que se puede recorrer y mantiene la referencia a la
+                posición actual.
+              </p>
 
-<pre><code class="language-javascript">// Usamos la sintaxis function* para declarar un generador
+              <pre><code class="language-javascript">// Usamos la sintaxis function* para declarar un generador
 // yield, devuelve el valor indicado a su derecha
 function* generador() {  
     yield 1;
@@ -382,9 +550,13 @@ console.log(iterador.next()); // { value: 3, done: false }
 console.log(iterador.next()); // { value: undefined , done: true }  
 </code></pre>
 
-<p>En este ejemplo muy sencillo entendemos mejor su funcionamiento, os dejo el ejemplo en <a href="http://jsbin.com/selucec/edit?js,console">JS Bin </a> </p>
+              <p>
+                En este ejemplo muy sencillo entendemos mejor su funcionamiento,
+                os dejo el ejemplo en
+                <a href="http://jsbin.com/selucec/edit?js,console">JS Bin </a>
+              </p>
 
-<pre><code class="language-javascript">function* generador() {  
+              <pre><code class="language-javascript">function* generador() {  
     yield 1;
     yield 2;
     yield 3;
@@ -413,9 +585,13 @@ for (var value of iterador) {
 }
 </code></pre>
 
-<p>Como vemos es posible <strong>recorrer el generador</strong> con loops, os dejo el ejemplo en <a href="http://jsbin.com/xeloba/edit?js,console">JS Bin</a> </p>
+              <p>
+                Como vemos es posible <strong>recorrer el generador</strong> con
+                loops, os dejo el ejemplo en
+                <a href="http://jsbin.com/xeloba/edit?js,console">JS Bin</a>
+              </p>
 
-<pre><code class="language-javascript">function* generador(x) {  
+              <pre><code class="language-javascript">function* generador(x) {  
     var y = 2 + (yield (x + 1)); // Primer yield
     var z = yield (y + 3); // Segundo yield
     return (x + y + z);
@@ -433,9 +609,13 @@ console.log( iterador.next(12) );
 console.log( iterador.next(13) );  
 </code></pre>
 
-<p>Un pequeño ejemplo del <strong>paso de variables</strong> a los generadores, os dejo el ejemplo en <a href="http://jsbin.com/wenito/edit?js,console">JS Bin</a> </p>
+              <p>
+                Un pequeño ejemplo del <strong>paso de variables</strong> a los
+                generadores, os dejo el ejemplo en
+                <a href="http://jsbin.com/wenito/edit?js,console">JS Bin</a>
+              </p>
 
-<pre><code class="language-javascript">// Un iterador puede contener otro iterador
+              <pre><code class="language-javascript">// Un iterador puede contener otro iterador
 function* anotherGenerator(i) {  
   yield i + 1;
   yield i + 2;
@@ -457,9 +637,16 @@ console.log(gen.next().value); // 13
 console.log(gen.next().value); // 20  
 </code></pre>
 
-<p>Y por último un fragmento en el que un <strong>iterador delega</strong> en otro, para ello se hace uso de <code>yield*</code>, os dejo el ejemplo en <a href="http://jsbin.com/feyoxe/edit?js,console">JS Bin</a> Si retomamos el ejemplo de la preparación de la pizza con generadores conseguimos un código más expresivo: </p>
+              <p>
+                Y por último un fragmento en el que un
+                <strong>iterador delega</strong> en otro, para ello se hace uso
+                de <code>yield*</code>, os dejo el ejemplo en
+                <a href="http://jsbin.com/feyoxe/edit?js,console">JS Bin</a> Si
+                retomamos el ejemplo de la preparación de la pizza con
+                generadores conseguimos un código más expresivo:
+              </p>
 
-<pre><code class="language-javascript">import co from "co"; 
+              <pre><code class="language-javascript">import co from "co"; 
 
 const _cookService = function(){  
   return function(){
@@ -494,243 +681,305 @@ co(function* (){
 }).then( (duracionCocinado) =&gt; console.log( "Pizza lista en " + totalTimeSpend + " seg, ¡A COMER! :)" ) );
 </code></pre>
 
-<p>Como vemos tenemos que hacer uso de una librería externa <strong>CO</strong>, que es una función que recibe un generador y gestiona las llamadas a la secuencia de promesas, cuando se completan todas, se devuelve otra promesa con el resultado final.</p>
-
-<h2 id="lobuenoylomalodeusargeneradores">Lo bueno y lo malo de usar generadores</h2>
-
-<p>Aunque los generadores acercan la programación asíncrona a una experiencia de desarrollo mas secuencial, puede llegar a ser engorroso el uso de cláusulas yield para realizar el manejo del control del flujo. <strong>Ventajas</strong></p>
-
-<ul>
-<li>Esquema de programación similar al secuencial</li>
-<li>Transparencia en los procesos de gestión de continuadores</li>
-<li>Curva de aprendizaje corta. Con pocas reglas de pulgar se puede razonar fácilmente en el modelo</li>
-</ul>
-
-<p><strong>Inconvenientes</strong></p>
-
-<ul>
-<li>Artificialidad del código. Perversión del uso de los yields</li>
-<li>Todo código esta siempre dentro de un contexto Co</li>
-<li>El código está plagado de yields</li>
-<li>¿Qué está haciendo Co por debajo?</li>
-</ul>
-          </div>
-
-          <footer class="post-footer">
-
-            <div class="post-share text-center">
-              <p class="light">
-                ¿Te ha gustado este artículo? compartelo para que más gente también pueda leerlo ☺️
+              <p>
+                Como vemos tenemos que hacer uso de una librería externa
+                <strong>CO</strong>, que es una función que recibe un generador
+                y gestiona las llamadas a la secuencia de promesas, cuando se
+                completan todas, se devuelve otra promesa con el resultado
+                final.
               </p>
-              <div class="addthis_inline_share_toolbox_ypuz"></div>
+
+              <h2 id="lobuenoylomalodeusargeneradores">
+                Lo bueno y lo malo de usar generadores
+              </h2>
+
+              <p>
+                Aunque los generadores acercan la programación asíncrona a una
+                experiencia de desarrollo mas secuencial, puede llegar a ser
+                engorroso el uso de cláusulas yield para realizar el manejo del
+                control del flujo. <strong>Ventajas</strong>
+              </p>
+
+              <ul>
+                <li>Esquema de programación similar al secuencial</li>
+                <li>
+                  Transparencia en los procesos de gestión de continuadores
+                </li>
+                <li>
+                  Curva de aprendizaje corta. Con pocas reglas de pulgar se
+                  puede razonar fácilmente en el modelo
+                </li>
+              </ul>
+
+              <p><strong>Inconvenientes</strong></p>
+
+              <ul>
+                <li>
+                  Artificialidad del código. Perversión del uso de los yields
+                </li>
+                <li>Todo código esta siempre dentro de un contexto Co</li>
+                <li>El código está plagado de yields</li>
+                <li>¿Qué está haciendo Co por debajo?</li>
+              </ul>
             </div>
 
-            <div class="post-author text-center">
+            <footer class="post-footer">
+              <div class="post-share text-center">
+                <p class="light">
+                  ¿Te ha gustado este artículo? compartelo para que más gente
+                  también pueda leerlo ☺️
+                </p>
+                <div class="addthis_inline_share_toolbox_ypuz"></div>
+              </div>
 
-                  <img src="../content/images/2016/11/profile.jpg" itemprop="image" class="post-avatar img-circle img-responsive">
+              <div class="post-author text-center">
+                <img
+                  src="../content/images/2016/11/profile.jpg"
+                  itemprop="image"
+                  class="post-avatar img-circle img-responsive"
+                />
                 <h4 class="bordered-bottom">Miguel Rodríguez</h4>
-                <p>¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas.</p>
-            </div>
+                <p>
+                  ¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo
+                  que más me gusta de mi trabajo es estar en constante
+                  aprendizaje, al tanto de las últimas noticias y trastear con
+                  nuevas ideas.
+                </p>
+              </div>
 
-            <div class="post-comments text-center">
-              <div id="disqus_thread"></div>
-              <script>
-                (function() { // DON'T EDIT BELOW THIS LINE
-                  var d = document,
-                    s = d.createElement('script');
-                  s.src = '//miguelra.disqus.com/embed.js';
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-                })();
-              </script>
-            </div>
-
-          </footer>
-
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <div class="reading-time-indicator js-post-sticky-footer">
-    <div class="post-reading-time visible js-post-reading-time">
-      <div class="percent js-percent-count">0%</div>
-      <progress value="0" class="read-progress-indicator single">
-          <div class="progress-container">
-            <span class="progress-bar"></span>
-          </div>
-      </progress>
-      <div class="read-estimation">
-        <div class="read-estimation-content">
-          <div class="title">¿Qué son las promesas y generadores?</div>
-          <div class="estimated-time">
-            <span class="js-word-count"></span> palabras - <span class="eta"></span>.
-          </div>
+              <div class="post-comments text-center">
+                <div id="disqus_thread"></div>
+                <script>
+                  (function () {
+                    // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                      s = d.createElement("script");
+                    s.src = "//miguelra.disqus.com/embed.js";
+                    s.setAttribute("data-timestamp", +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
+              </div>
+            </footer>
+          </article>
         </div>
       </div>
     </div>
-    <div class="js-prev-next-post prev-next-post">
-      <div class="prev-block">
+
+    <div class="reading-time-indicator js-post-sticky-footer">
+      <div class="post-reading-time visible js-post-reading-time">
+        <div class="percent js-percent-count">0%</div>
+        <progress value="0" class="read-progress-indicator single">
+          <div class="progress-container">
+            <span class="progress-bar"></span>
+          </div>
+        </progress>
+        <div class="read-estimation">
+          <div class="read-estimation-content">
+            <div class="title">¿Qué son las promesas y generadores?</div>
+            <div class="estimated-time">
+              <span class="js-word-count"></span> palabras -
+              <span class="eta"></span>.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js-prev-next-post prev-next-post">
+        <div class="prev-block">
           <a href="../como-funciona-ajax/">
             <span class="image">
-                <img src="../content/images/2016/12/javascript-3.jpg" class="post-image-thumbnail">
+              <img
+                src="../content/images/2016/12/javascript-3.jpg"
+                class="post-image-thumbnail"
+              />
             </span>
             <span class="description">
               <span class="prev-next-label">Anterior</span>
               <span class="post-title">¿Cómo funciona AJAX?</span>
             </span>
           </a>
-      </div>
-      <div class="next-block">
+        </div>
+        <div class="next-block">
           <a href="../como-mejorar-la-velocidad-de-una-web/">
             <span class="image">
-              <img src="../content/images/2016/12/speed.jpg" class="post-image-thumbnail">
+              <img
+                src="../content/images/2016/12/speed.jpg"
+                class="post-image-thumbnail"
+              />
             </span>
             <span class="description">
               <span class="prev-next-label">Siguiente</span>
-              <span class="post-title">Cómo mejorar la velocidad de una web</span>
+              <span class="post-title"
+                >Cómo mejorar la velocidad de una web</span
+              >
             </span>
           </a>
+        </div>
       </div>
     </div>
-  </div>
 
-
-<footer id="footer" class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(../content/images/2016/12/background-coding.jpg)">
-    <div class="inner">
+    <footer
+      id="footer"
+      class="blog-background overlay text-center align-middle animated from-top"
+      style="
+        background-image: url(../content/images/2016/12/background-coding.jpg);
+      "
+    >
+      <div class="inner">
         <div class="container">
-
-            <ul class="social-icons">
-              <li>
-                 <a href="https://github.com/miguel-ra">
-                      <i class="icon-github"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://codepen.io/miguelra/">
-                      <i class="icon-codepen"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://twitter.com/theRollerShark">
-                      <i class="icon-twitter"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://www.facebook.com/miguelrodriguezamarelle">
-                      <i class="icon-facebook"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
-                      <i class="icon-linkedin"></i>
-                  </a>
-              </li>
-            </ul>
-            <p class="copy-text">
-              Copyright © 2016 MiguelRA.
-            </p>
+          <ul class="social-icons">
+            <li>
+              <a href="https://github.com/miguel-ra">
+                <i class="icon-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/miguelra/">
+                <i class="icon-codepen"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/theRollerShark">
+                <i class="icon-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.facebook.com/miguelrodriguezamarelle">
+                <i class="icon-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
+                <i class="icon-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="copy-text">Copyright © 2016 MiguelRA.</p>
         </div>
-    </div>
-        <div class="decor-wrapper">
-            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="footer-decor"
+          class="decor top"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+          <path
+            class="medium left"
+            d="M0 0 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 0 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
 
-                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"/>
-                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="small left"
+            d="M0 0 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 0 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
 
-                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"/>
-                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"/>
+          <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)" />
 
-                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"/>
+          <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)" />
+        </svg>
+      </div>
+    </footer>
 
-                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"/>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      var load = (function () {
+        function _load(tag) {
+          return function (url) {
+            // This promise will be used by Promise.all to determine success or failure
+            return new Promise(function (resolve, reject) {
+              var element = document.createElement(tag);
+              var parent = "body";
+              var attr = "src";
 
-            </svg>
-        </div>
-</footer>
+              // Important success and error for the promise
+              element.onload = function () {
+                resolve(url);
+              };
+              element.onerror = function () {
+                reject(url);
+              };
 
+              // Need to set different attributes depending on tag type
+              switch (tag) {
+                case "script":
+                  element.async = true;
+                  break;
+                case "link":
+                  element.type = "text/css";
+                  element.rel = "stylesheet";
+                  attr = "href";
+                  parent = "head";
+              }
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              // Inject into document to kick off loading
+              element[attr] = url;
+              document[parent].appendChild(element);
+            });
+          };
+        }
 
-    ga('create', 'UA-44786119-5', 'auto');
-    ga('send', 'pageview');
-</script>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script type="text/javascript" src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"></script>
-  <script type="text/javascript">
-    var load = (function () {
-      function _load(tag) {
-        return function (url) {
-          // This promise will be used by Promise.all to determine success or failure
-          return new Promise(function (resolve, reject) {
-            var element = document.createElement(tag);
-            var parent = 'body';
-            var attr = 'src';
-
-            // Important success and error for the promise
-            element.onload = function () {
-              resolve(url);
-            };
-            element.onerror = function () {
-              reject(url);
-            };
-
-            // Need to set different attributes depending on tag type
-            switch (tag) {
-              case 'script':
-                element.async = true;
-                break;
-              case 'link':
-                element.type = 'text/css';
-                element.rel = 'stylesheet';
-                attr = 'href';
-                parent = 'head';
-            }
-
-            // Inject into document to kick off loading
-            element[attr] = url;
-            document[parent].appendChild(element);
-          });
+        return {
+          css: _load("link"),
+          js: _load("script"),
         };
-      }
+      })();
 
-      return {
-        css: _load('link'),
-        js: _load('script')
-      }
-    })();
+      (function loadFiles() {
+        load.css("/assets/vendor/prism/css/prism.css?v=037246b580");
+        load.css("/assets/vendor/sweetalert/sweetalert.css?v=037246b580");
 
-
-    (function loadFiles() {
-      load.css('/assets/vendor/prism/css/prism.css?v=037246b580');
-      load.css('/assets/vendor/sweetalert/sweetalert.css?v=037246b580');
-
-      Promise.all([
-        load.js('/assets/vendor/polyfills/fetch.min.js?v=037246b580'),
-        load.js('/assets/vendor/waypoints/waypoints.min.js?v=037246b580'),
-        load.js('/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580'),
-        load.js('/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580'),
-        load.js('/assets/vendor/readingtime/readingtime.min.js?v=037246b580'),
-        load.js('/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580'),
-        load.js('/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580'),
-        load.js('https://cookies.miguelra.com/miguelraCookies.js')
-      ]).then(function () {
-        load.js('/assets/js/script.js?v=037246b580').then(function () {
-          load.js('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1');
-          load.js('/assets/vendor/prism/js/prism.min.js?v=037246b580');
-          miguelraCookies({ server: "miguelra.com", color: "666666" });
+        Promise.all([
+          load.js("/assets/vendor/polyfills/fetch.min.js?v=037246b580"),
+          load.js("/assets/vendor/waypoints/waypoints.min.js?v=037246b580"),
+          load.js("/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580"),
+          load.js("/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580"),
+          load.js("/assets/vendor/readingtime/readingtime.min.js?v=037246b580"),
+          load.js("/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580"),
+          load.js(
+            "/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580"
+          ),
+        ]).then(function () {
+          load.js("/assets/js/script.js?v=037246b580").then(function () {
+            load.js(
+              "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1"
+            );
+            load.js("/assets/vendor/prism/js/prism.min.js?v=037246b580");
+          });
         });
-      });
-    }());
-  </script>
-</body>
-
+      })();
+    </script>
+  </body>
 </html>

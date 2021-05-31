@@ -1,172 +1,291 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta
+      name="google-site-verification"
+      content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U"
+    />
 
-<head>
-  <meta name="google-site-verification" content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>¿Cómo funciona AJAX?</title>
+    <meta name="description" content />
 
-  <title>¿Cómo funciona AJAX?</title>
-  <meta name="description" content>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png" />
 
-  <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css" />
 
-  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css">
+    <link rel="canonical" href="http://www.miguelra.com/como-funciona-ajax/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link
+      rel="amphtml"
+      href="http://www.miguelra.com/como-funciona-ajax/amp/"
+    />
 
-  <link rel="canonical" href="http://www.miguelra.com/como-funciona-ajax/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://www.miguelra.com/como-funciona-ajax/amp/">
-    
-    <meta property="og:site_name" content="Miguel Rodríguez">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="¿Cómo funciona AJAX?">
-    <meta property="og:description" content="Antes de nada lo que tenemos que tener claro es ¿AJAX?, Estás siglas significan Asynchronous JavaScript And XML (JavaScript asíncrono y XML) Como ya veíamos en el artículo ¿Cómo funciona el protocolo HTTP?,  cada vez que queremos actualizar el contenido de nuestro sitio web tendríamos que recargar nuestro página, con">
-    <meta property="og:url" content="http://www.miguelra.com/como-funciona-ajax/">
-    <meta property="og:image" content="http://www.miguelra.com/content/images/2016/12/javascript-3.jpg">
-    <meta property="article:published_time" content="2016-06-05T22:02:00.000Z">
-    <meta property="article:modified_time" content="2016-12-15T15:14:06.000Z">
-    <meta property="article:tag" content="Javascript">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="¿Cómo funciona AJAX?">
-    <meta name="twitter:description" content="Antes de nada lo que tenemos que tener claro es ¿AJAX?, Estás siglas significan Asynchronous JavaScript And XML (JavaScript asíncrono y XML) Como ya veíamos en el artículo ¿Cómo funciona el protocolo HTTP?,  cada vez que queremos actualizar el contenido de nuestro sitio web tendríamos que recargar nuestro página, con">
-    <meta name="twitter:url" content="http://www.miguelra.com/como-funciona-ajax/">
-    <meta name="twitter:image" content="http://www.miguelra.com/content/images/2016/12/javascript-3.jpg">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Miguel Rodríguez">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript">
-    
+    <meta property="og:site_name" content="Miguel Rodríguez" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="¿Cómo funciona AJAX?" />
+    <meta
+      property="og:description"
+      content="Antes de nada lo que tenemos que tener claro es ¿AJAX?, Estás siglas significan Asynchronous JavaScript And XML (JavaScript asíncrono y XML) Como ya veíamos en el artículo ¿Cómo funciona el protocolo HTTP?,  cada vez que queremos actualizar el contenido de nuestro sitio web tendríamos que recargar nuestro página, con"
+    />
+    <meta
+      property="og:url"
+      content="http://www.miguelra.com/como-funciona-ajax/"
+    />
+    <meta
+      property="og:image"
+      content="http://www.miguelra.com/content/images/2016/12/javascript-3.jpg"
+    />
+    <meta
+      property="article:published_time"
+      content="2016-06-05T22:02:00.000Z"
+    />
+    <meta property="article:modified_time" content="2016-12-15T15:14:06.000Z" />
+    <meta property="article:tag" content="Javascript" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="¿Cómo funciona AJAX?" />
+    <meta
+      name="twitter:description"
+      content="Antes de nada lo que tenemos que tener claro es ¿AJAX?, Estás siglas significan Asynchronous JavaScript And XML (JavaScript asíncrono y XML) Como ya veíamos en el artículo ¿Cómo funciona el protocolo HTTP?,  cada vez que queremos actualizar el contenido de nuestro sitio web tendríamos que recargar nuestro página, con"
+    />
+    <meta
+      name="twitter:url"
+      content="http://www.miguelra.com/como-funciona-ajax/"
+    />
+    <meta
+      name="twitter:image"
+      content="http://www.miguelra.com/content/images/2016/12/javascript-3.jpg"
+    />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Miguel Rodríguez" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
+
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Miguel Rodríguez",
-        "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Miguel Rodríguez",
-        "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
-        "url": "http://www.miguelra.com/author/miguel/",
-        "sameAs": [],
-        "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
-    },
-    "headline": "¿Cómo funciona AJAX?",
-    "url": "http://www.miguelra.com/como-funciona-ajax/",
-    "datePublished": "2016-06-05T22:02:00.000Z",
-    "dateModified": "2016-12-15T15:14:06.000Z",
-    "image": "http://www.miguelra.com/content/images/2016/12/javascript-3.jpg",
-    "keywords": "Javascript",
-    "description": "Antes de nada lo que tenemos que tener claro es ¿AJAX?, Estás siglas significan Asynchronous JavaScript And XML (JavaScript asíncrono y XML) Como ya veíamos en el artículo ¿Cómo funciona el protocolo HTTP?,  cada vez que queremos actualizar el contenido de nuestro sitio web tendríamos que recargar nuestro página, con",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://www.miguelra.com"
-    }
-}
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Miguel Rodríguez",
+          "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Miguel Rodríguez",
+          "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
+          "url": "http://www.miguelra.com/author/miguel/",
+          "sameAs": [],
+          "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
+        },
+        "headline": "¿Cómo funciona AJAX?",
+        "url": "http://www.miguelra.com/como-funciona-ajax/",
+        "datePublished": "2016-06-05T22:02:00.000Z",
+        "dateModified": "2016-12-15T15:14:06.000Z",
+        "image": "http://www.miguelra.com/content/images/2016/12/javascript-3.jpg",
+        "keywords": "Javascript",
+        "description": "Antes de nada lo que tenemos que tener claro es ¿AJAX?, Estás siglas significan Asynchronous JavaScript And XML (JavaScript asíncrono y XML) Como ya veíamos en el artículo ¿Cómo funciona el protocolo HTTP?,  cada vez que queremos actualizar el contenido de nuestro sitio web tendríamos que recargar nuestro página, con",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "http://www.miguelra.com"
+        }
+      }
     </script>
 
-    <script type="text/javascript" src="../shared/ghost-url.min_v%3D037246b580.js"></script>
-<script type="text/javascript">
-ghost.init({
-	clientId: "ghost-frontend",
-	clientSecret: "d1a707dee088"
-});
-</script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Miguel Rodríguez" href="http://www.miguelra.com/rss/">
-</head>
+    <script
+      type="text/javascript"
+      src="../shared/ghost-url.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      ghost.init({
+        clientId: "ghost-frontend",
+        clientSecret: "d1a707dee088",
+      });
+    </script>
+    <meta name="generator" content="Ghost 0.11" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Miguel Rodríguez"
+      href="http://www.miguelra.com/rss/"
+    />
+  </head>
 
-<body class="post-template tag-javascript">
-
-  
-  
-
-<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" style="background-image: url(../content/images/2016/12/javascript-3.jpg)">
-
-    <div class="inner">
+  <body class="post-template tag-javascript">
+    <header
+      id="masthead"
+      class="
+        blog-background
+        overlay
+        align-center align-middle
+        animated
+        from-bottom
+      "
+      style="background-image: url(../content/images/2016/12/javascript-3.jpg)"
+    >
+      <div class="inner">
         <div class="container">
-            <a class="brand light" href="http://www.miguelra.com" role="banner">
-                    <img src="../content/images/2016/11/logo.png" alt="Blog Logo">
-            </a>
-            <h1 class="blog-title light">
-                Miguel Rodríguez
-            </h1>
-            <h2 class="blog-description light bordered bordered-top">
-                
-            </h2>
+          <a class="brand light" href="http://www.miguelra.com" role="banner">
+            <img src="../content/images/2016/11/logo.png" alt="Blog Logo" />
+          </a>
+          <h1 class="blog-title light">Miguel Rodríguez</h1>
+          <h2 class="blog-description light bordered bordered-top"></h2>
         </div>
-    </div>
-    <div class="decor-wrapper">
-        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="header-decor"
+          class="decor bottom"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"/>
-            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="medium left"
+            d="M0 100 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 100 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
 
-            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"/>
-            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"/>
+          <path
+            class="small left"
+            d="M0 100 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 100 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
 
-            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"/>
+          <path
+            d="M0 99.9 L50 49.9 L100 99.9 L0 99.9"
+            fill="rgba(255,255,255, 1)"
+          />
 
-            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"/>
-
+          <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)" />
         </svg>
+      </div>
+    </header>
 
-    </div>
-</header>
+    <div id="main" class="content" role="main">
+      <div class="container">
+        <div class="row">
+          <article class="post tag-javascript post post col-md-9">
+            <header class="post-header">
+              <h1 class="post-title text-center hyper lighter bordered-bottom">
+                ¿Cómo funciona AJAX?
+              </h1>
+              <div class="post-info text-center small">
+                <time datetime="2016-06-05" class="post-time">05/06/2016</time>
+                en
+                <span class="post-tags"
+                  ><a href="../tag/javascript/">Javascript</a></span
+                >
+              </div>
+            </header>
+            <div class="post-body bordered-bottom">
+              <div class="addthis_inline_share_toolbox"></div>
+              <p>
+                Antes de nada lo que tenemos que tener claro es
+                ¿<strong>AJAX</strong>?, Estás siglas significan <em
+                  ><strong>A</strong>synchronous <strong>J</strong>avaScript
+                  <strong>A</strong>nd <strong>X</strong>ML</em
+                >
+                (JavaScript asíncrono y XML) Como ya veíamos en el artículo <a
+                  href="../como-funciona-el-protocolo-http/"
+                  >¿Cómo funciona el protocolo HTTP?</a
+                >,  cada vez que queremos actualizar el contenido de nuestro
+                sitio web tendríamos que recargar nuestro página, con está
+                tecnología conseguimos es evitar esas odiosas recargas de
+                pantalla, con las que el usuario pierde la iteración con la
+                aplicación. <br />
+                <img
+                  src="../content/images/2016/12/Procesamientosincrono-1.jpg"
+                  alt="Procesamiento web sincrono"
+                />
+                <strong>Ejemplo de aplicación web sincrona</strong>
+              </p>
 
-  <div id="main" class="content" role="main">
-    <div class="container">
+              <p>
+                <img
+                  src="../content/images/2016/12/Procesamientoasincrono.jpg"
+                  alt="Procesamiento web asincrono"
+                />
+                <strong>Ejemplo de aplicación web asíncrona</strong>, una
+                aplicación de este tipo podría ser un chat.
+              </p>
 
-      <div class="row">
-        <article class="post tag-javascript post post col-md-9">
+              <h2 id="qutecnologasusaajax">¿Qué tecnologías usa AJAX?</h2>
 
+              <p>
+                Ajax hace uso de cuatro tecnologías <code>HTML y CSS</code> -
+                Para maquetar la información recibida.
+                <code>DOM</code> (Document Object Model) - Estructura jerárquica
+                que modela una página web, es usado para eliminar, modificar o
+                agregar nuevos elementos. <code>XMLHttpRequest</code> - Objeto
+                que nos permite realizar peticiones HTTP o HTTPS
+                <code>XML, JSON</code> - Codificación utilizada para transferir
+                los datos. Ahora que ya sabemos un poco el funcionamiento de
+                AJAX.
+              </p>
 
+              <h2 id="cmoserealizaunapeticinajax">
+                ¿Cómo se realiza una petición AJAX?
+              </h2>
 
-          <header class="post-header">
-            <h1 class="post-title text-center hyper lighter bordered-bottom">¿Cómo funciona AJAX?</h1>
-            <div class="post-info text-center small">
-              <time datetime="2016-06-05" class="post-time">05/06/2016</time>
-               en <span class="post-tags"><a href="../tag/javascript/">Javascript</a></span>
-            </div>
-          </header>
-          <div class="post-body bordered-bottom">
-            <div class="addthis_inline_share_toolbox"></div>
-            <p>Antes de nada lo que tenemos que tener claro es ¿<strong>AJAX</strong>?, Estás siglas significan <em><strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML</em> (JavaScript asíncrono y XML) Como ya veíamos en el artículo <a href="../como-funciona-el-protocolo-http/">¿Cómo funciona el protocolo HTTP?</a>,  cada vez que queremos actualizar el contenido de nuestro sitio web tendríamos que recargar nuestro página, con está tecnología conseguimos es evitar esas odiosas recargas de pantalla, con las que el usuario pierde la iteración con la aplicación. <br>
-<img src="../content/images/2016/12/Procesamientosincrono-1.jpg" alt="Procesamiento web sincrono">
-<strong>Ejemplo de aplicación web sincrona</strong> </p>
+              <p>
+                Como hemos visto en
+                <a href="../como-funciona-el-protocolo-http/"
+                  >artículos anteriores</a
+                >
+                en el blog cada vez que realizamos una petición a un servidor
+                tenemos que indicarle el método (GET, POST, ...) y a mayores
+                agregar cabeceras al objeto con la
+                propiedad <code>setRequestHeader</code>. En la
+                <a href="https://developer.mozilla.org/es/docs/XMLHttpRequest"
+                  >API de XMLHttpRequest</a
+                >
+                podemos ver todos las propiedades del objeto.
+              </p>
 
-<p><img src="../content/images/2016/12/Procesamientoasincrono.jpg" alt="Procesamiento web asincrono">
-<strong>Ejemplo de aplicación web asíncrona</strong>, una aplicación de este tipo podría ser un chat.</p>
-
-<h2 id="qutecnologasusaajax">¿Qué tecnologías usa AJAX?</h2>
-
-<p>Ajax hace uso de cuatro tecnologías <code>HTML y CSS</code> - Para maquetar la información recibida. <code>DOM</code> (Document Object Model) - Estructura jerárquica que modela una página web, es usado para eliminar, modificar o agregar nuevos elementos. <code>XMLHttpRequest</code> - Objeto que nos permite realizar peticiones HTTP o HTTPS <code>XML, JSON</code> - Codificación utilizada para transferir los datos. Ahora que ya sabemos un poco el funcionamiento de AJAX.</p>
-
-<h2 id="cmoserealizaunapeticinajax">¿Cómo se realiza una petición AJAX?</h2>
-
-<p>Como hemos visto en <a href="../como-funciona-el-protocolo-http/">artículos anteriores</a> en el blog cada vez que realizamos una petición a un servidor tenemos que indicarle el método (GET, POST, ...) y a mayores agregar cabeceras al objeto con la propiedad <code>setRequestHeader</code>. En la <a href="https://developer.mozilla.org/es/docs/XMLHttpRequest">API de XMLHttpRequest</a> podemos ver todos las propiedades del objeto. </p>
-
-<pre><code class="language-javascript">var request = new XMLHttpRequest();  
+              <pre><code class="language-javascript">var request = new XMLHttpRequest();  
 request.open('POST', '/my/url', true);  
 request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');  
 request.send(data);  
 </code></pre>
 
-<p><strong>Ejemplo de petición AJAX POST</strong> que no espera ninguna respuesta. </p>
+              <p>
+                <strong>Ejemplo de petición AJAX POST</strong> que no espera
+                ninguna respuesta.
+              </p>
 
-<pre><code class="language-javascript">var request = new XMLHttpRequest();  
+              <pre><code class="language-javascript">var request = new XMLHttpRequest();  
 request.open('GET', '/my/url', true);
 
 request.onload = function() {  
@@ -186,42 +305,123 @@ request.onerror = function() {
 request.send();  
 </code></pre>
 
-<p><strong>Ejemplo de petición AJAX GET</strong> que espera respuesta.</p>
+              <p>
+                <strong>Ejemplo de petición AJAX GET</strong> que espera
+                respuesta.
+              </p>
 
-<h2 id="alternativaaxmlhttprequest">Alternativa a XMLHttpRequest</h2>
+              <h2 id="alternativaaxmlhttprequest">
+                Alternativa a XMLHttpRequest
+              </h2>
 
-<p>Hasta ahora solo conocíamos XMLHttpRequest al que llamamos AJAX, pero existe una nueva forma de comunicarnos con el servidor que es <strong>FETCH.</strong> Antes de nada hay que aclarar que fetch aún no está implementado por todos los navegadores por lo que su uso es limitado, como podemos ver en esta <a href="http://caniuse.com/#feat=fetch">gráfica de Can I use</a>.</p>
+              <p>
+                Hasta ahora solo conocíamos XMLHttpRequest al que llamamos AJAX,
+                pero existe una nueva forma de comunicarnos con el servidor que
+                es <strong>FETCH.</strong> Antes de nada hay que aclarar que
+                fetch aún no está implementado por todos los navegadores por lo
+                que su uso es limitado, como podemos ver en esta
+                <a href="http://caniuse.com/#feat=fetch">gráfica de Can I use</a
+                >.
+              </p>
 
-<p><img src="../content/images/2016/12/Captura-de-pantalla-2016-06-05-a-las-23.21.58.png" alt="Can i use Fetch"></p>
+              <p>
+                <img
+                  src="../content/images/2016/12/Captura-de-pantalla-2016-06-05-a-las-23.21.58.png"
+                  alt="Can i use Fetch"
+                />
+              </p>
 
-<p>Aunque siempre podemos usar un <a href="http://www.elmaquetadorweb.com/2015/02/html5-polyfill-que-es-un-polyfill.html"><strong>Polyfill</strong></a>, en este caso el equipo de Github ha desarrollado uno, que podemos ver desde <a href="https://developer.mozilla.org/es/docs/XMLHttpRequest">aquí</a>.</p>
+              <p>
+                Aunque siempre podemos usar un
+                <a
+                  href="http://www.elmaquetadorweb.com/2015/02/html5-polyfill-que-es-un-polyfill.html"
+                  ><strong>Polyfill</strong></a
+                >, en este caso el equipo de Github ha desarrollado uno, que
+                podemos ver desde
+                <a href="https://developer.mozilla.org/es/docs/XMLHttpRequest"
+                  >aquí</a
+                >.
+              </p>
 
-<h2 id="qunosofrecefetch">¿Qué nos ofrece Fetch?</h2>
+              <h2 id="qunosofrecefetch">¿Qué nos ofrece Fetch?</h2>
 
-<p><strong>Facilidad de uso -</strong> Como veíamos en los objetos de arriba crear objetos y configurar los callbacks puede ser un poco tedioso, podemos ver que es muy sencillo. </p>
+              <p>
+                <strong>Facilidad de uso -</strong> Como veíamos en los objetos
+                de arriba crear objetos y configurar los callbacks puede ser un
+                poco tedioso, podemos ver que es muy sencillo.
+              </p>
 
-<pre><code class="language-javascript">fetch('/my/url')  
+              <pre><code class="language-javascript">fetch('/my/url')  
 .then(function(response) {
   var resp = response.text();
 })
 </code></pre>
 
-<p>En este ejemplo estoy recibiendo la respuesta como texto pero lo podríamos obtener como <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/arrayBuffer" title="The arrayBuffer() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with an ArrayBuffer.">arrayBuffer()</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob" title="The blob() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with a Blob.">blob()</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/json" title="The json() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with an object literal containing the JSON data.">json()</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text" title="The text() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with a USVString object (text).">text()</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Body/formData" title="The formData() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with a FormData object.">formData()</a>. Por defecto fetch usa el método GET, podemos ver todas estas opciones en la <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">API</a>. <em>*Uso de promesas - *</em>Totalmente enfocado al uso de las mismas, si quieres saber más acerca de las promesas, puedes revisar mi <a href="https://elrinconde.miguelra.com/javascript/las-promesas-generadores/">otro artículo</a> .</p>
+              <p>
+                En este ejemplo estoy recibiendo la respuesta como texto pero lo
+                podríamos obtener como
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/Body/arrayBuffer"
+                  title="The arrayBuffer() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with an ArrayBuffer."
+                  >arrayBuffer()</a
+                >,
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/Body/blob"
+                  title="The blob() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with a Blob."
+                  >blob()</a
+                >,
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/Body/json"
+                  title="The json() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with an object literal containing the JSON data."
+                  >json()</a
+                >,
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/Body/text"
+                  title="The text() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with a USVString object (text)."
+                  >text()</a
+                >,
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/Body/formData"
+                  title="The formData() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise that resolves with a FormData object."
+                  >formData()</a
+                >. Por defecto fetch usa el método GET, podemos ver todas estas
+                opciones en la
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+                  >API</a
+                >. <em>*Uso de promesas - *</em>Totalmente enfocado al uso de
+                las mismas, si quieres saber más acerca de las promesas, puedes
+                revisar mi
+                <a
+                  href="https://elrinconde.miguelra.com/javascript/las-promesas-generadores/"
+                  >otro artículo</a
+                > .
+              </p>
 
-<h2 id="ajaxconlibrerasexternas">AJAX con librerías externas</h2>
+              <h2 id="ajaxconlibrerasexternas">AJAX con librerías externas</h2>
 
-<p>Como hemos visto Fetch hace el uso de llamadas asíncronas muy sencillo, XMLHttpRequest puede llegar a ser un algo engorroso, por ello algunos desolladores han creado librerías externas que nos facilitan su uso, en este caso vamos a hablar de <strong>JQuery</strong>, y comprar con los ejemplos que hemos visto.  </p>
+              <p>
+                Como hemos visto Fetch hace el uso de llamadas asíncronas muy
+                sencillo, XMLHttpRequest puede llegar a ser un algo engorroso,
+                por ello algunos desolladores han creado librerías externas que
+                nos facilitan su uso, en este caso vamos a hablar de
+                <strong>JQuery</strong>, y comprar con los ejemplos que hemos
+                visto.
+              </p>
 
-<pre><code class="language-javascript">$.ajax({
+              <pre><code class="language-javascript">$.ajax({
   type: 'POST',
   url: '/my/url',
   data: data
 });
 </code></pre>
 
-<p><strong>Ejemplo de petición AJAX POST usando JQuery</strong> que no espera ninguna respuesta. </p>
+              <p>
+                <strong>Ejemplo de petición AJAX POST usando JQuery</strong>
+                que no espera ninguna respuesta.
+              </p>
 
-<pre><code class="language-javascript">$.ajax({
+              <pre><code class="language-javascript">$.ajax({
   type: 'GET',
   url: '/my/url',
   success: function(resp) {
@@ -233,224 +433,269 @@ request.send();
 });
 </code></pre>
 
-<p><strong>Ejemplo de petición AJAX GET usando JQuery</strong> que espera respuesta.</p>
-          </div>
-
-          <footer class="post-footer">
-
-            <div class="post-share text-center">
-              <p class="light">
-                ¿Te ha gustado este artículo? compartelo para que más gente también pueda leerlo ☺️
+              <p>
+                <strong>Ejemplo de petición AJAX GET usando JQuery</strong> que
+                espera respuesta.
               </p>
-              <div class="addthis_inline_share_toolbox_ypuz"></div>
             </div>
 
-            <div class="post-author text-center">
+            <footer class="post-footer">
+              <div class="post-share text-center">
+                <p class="light">
+                  ¿Te ha gustado este artículo? compartelo para que más gente
+                  también pueda leerlo ☺️
+                </p>
+                <div class="addthis_inline_share_toolbox_ypuz"></div>
+              </div>
 
-                  <img src="../content/images/2016/11/profile.jpg" itemprop="image" class="post-avatar img-circle img-responsive">
+              <div class="post-author text-center">
+                <img
+                  src="../content/images/2016/11/profile.jpg"
+                  itemprop="image"
+                  class="post-avatar img-circle img-responsive"
+                />
                 <h4 class="bordered-bottom">Miguel Rodríguez</h4>
-                <p>¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas.</p>
-            </div>
+                <p>
+                  ¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo
+                  que más me gusta de mi trabajo es estar en constante
+                  aprendizaje, al tanto de las últimas noticias y trastear con
+                  nuevas ideas.
+                </p>
+              </div>
 
-            <div class="post-comments text-center">
-              <div id="disqus_thread"></div>
-              <script>
-                (function() { // DON'T EDIT BELOW THIS LINE
-                  var d = document,
-                    s = d.createElement('script');
-                  s.src = '//miguelra.disqus.com/embed.js';
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-                })();
-              </script>
-            </div>
-
-          </footer>
-
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <div class="reading-time-indicator js-post-sticky-footer">
-    <div class="post-reading-time visible js-post-reading-time">
-      <div class="percent js-percent-count">0%</div>
-      <progress value="0" class="read-progress-indicator single">
-          <div class="progress-container">
-            <span class="progress-bar"></span>
-          </div>
-      </progress>
-      <div class="read-estimation">
-        <div class="read-estimation-content">
-          <div class="title">¿Cómo funciona AJAX?</div>
-          <div class="estimated-time">
-            <span class="js-word-count"></span> palabras - <span class="eta"></span>.
-          </div>
+              <div class="post-comments text-center">
+                <div id="disqus_thread"></div>
+                <script>
+                  (function () {
+                    // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                      s = d.createElement("script");
+                    s.src = "//miguelra.disqus.com/embed.js";
+                    s.setAttribute("data-timestamp", +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
+              </div>
+            </footer>
+          </article>
         </div>
       </div>
     </div>
-    <div class="js-prev-next-post prev-next-post">
-      <div class="prev-block">
+
+    <div class="reading-time-indicator js-post-sticky-footer">
+      <div class="post-reading-time visible js-post-reading-time">
+        <div class="percent js-percent-count">0%</div>
+        <progress value="0" class="read-progress-indicator single">
+          <div class="progress-container">
+            <span class="progress-bar"></span>
+          </div>
+        </progress>
+        <div class="read-estimation">
+          <div class="read-estimation-content">
+            <div class="title">¿Cómo funciona AJAX?</div>
+            <div class="estimated-time">
+              <span class="js-word-count"></span> palabras -
+              <span class="eta"></span>.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js-prev-next-post prev-next-post">
+        <div class="prev-block">
           <a href="../como-funciona-el-protocolo-http/">
             <span class="image">
-                <img src="../content/images/2016/12/http.jpg" class="post-image-thumbnail">
+              <img
+                src="../content/images/2016/12/http.jpg"
+                class="post-image-thumbnail"
+              />
             </span>
             <span class="description">
               <span class="prev-next-label">Anterior</span>
               <span class="post-title">¿Cómo funciona el protocolo HTTP?</span>
             </span>
           </a>
-      </div>
-      <div class="next-block">
+        </div>
+        <div class="next-block">
           <a href="../que-son-las-promesas-y-generadores/">
             <span class="image">
-              <img src="../content/images/2016/12/javascript-2.jpg" class="post-image-thumbnail">
+              <img
+                src="../content/images/2016/12/javascript-2.jpg"
+                class="post-image-thumbnail"
+              />
             </span>
             <span class="description">
               <span class="prev-next-label">Siguiente</span>
-              <span class="post-title">¿Qué son las promesas y generadores?</span>
+              <span class="post-title"
+                >¿Qué son las promesas y generadores?</span
+              >
             </span>
           </a>
+        </div>
       </div>
     </div>
-  </div>
 
-
-<footer id="footer" class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(../content/images/2016/12/background-coding.jpg)">
-    <div class="inner">
+    <footer
+      id="footer"
+      class="blog-background overlay text-center align-middle animated from-top"
+      style="
+        background-image: url(../content/images/2016/12/background-coding.jpg);
+      "
+    >
+      <div class="inner">
         <div class="container">
-
-            <ul class="social-icons">
-              <li>
-                 <a href="https://github.com/miguel-ra">
-                      <i class="icon-github"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://codepen.io/miguelra/">
-                      <i class="icon-codepen"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://twitter.com/theRollerShark">
-                      <i class="icon-twitter"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://www.facebook.com/miguelrodriguezamarelle">
-                      <i class="icon-facebook"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
-                      <i class="icon-linkedin"></i>
-                  </a>
-              </li>
-            </ul>
-            <p class="copy-text">
-              Copyright © 2016 MiguelRA.
-            </p>
+          <ul class="social-icons">
+            <li>
+              <a href="https://github.com/miguel-ra">
+                <i class="icon-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/miguelra/">
+                <i class="icon-codepen"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/theRollerShark">
+                <i class="icon-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.facebook.com/miguelrodriguezamarelle">
+                <i class="icon-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
+                <i class="icon-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="copy-text">Copyright © 2016 MiguelRA.</p>
         </div>
-    </div>
-        <div class="decor-wrapper">
-            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="footer-decor"
+          class="decor top"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+          <path
+            class="medium left"
+            d="M0 0 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 0 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
 
-                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"/>
-                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="small left"
+            d="M0 0 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 0 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
 
-                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"/>
-                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"/>
+          <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)" />
 
-                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"/>
+          <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)" />
+        </svg>
+      </div>
+    </footer>
 
-                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"/>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      var load = (function () {
+        function _load(tag) {
+          return function (url) {
+            // This promise will be used by Promise.all to determine success or failure
+            return new Promise(function (resolve, reject) {
+              var element = document.createElement(tag);
+              var parent = "body";
+              var attr = "src";
 
-            </svg>
-        </div>
-</footer>
+              // Important success and error for the promise
+              element.onload = function () {
+                resolve(url);
+              };
+              element.onerror = function () {
+                reject(url);
+              };
 
+              // Need to set different attributes depending on tag type
+              switch (tag) {
+                case "script":
+                  element.async = true;
+                  break;
+                case "link":
+                  element.type = "text/css";
+                  element.rel = "stylesheet";
+                  attr = "href";
+                  parent = "head";
+              }
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              // Inject into document to kick off loading
+              element[attr] = url;
+              document[parent].appendChild(element);
+            });
+          };
+        }
 
-    ga('create', 'UA-44786119-5', 'auto');
-    ga('send', 'pageview');
-</script>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script type="text/javascript" src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"></script>
-  <script type="text/javascript">
-    var load = (function () {
-      function _load(tag) {
-        return function (url) {
-          // This promise will be used by Promise.all to determine success or failure
-          return new Promise(function (resolve, reject) {
-            var element = document.createElement(tag);
-            var parent = 'body';
-            var attr = 'src';
-
-            // Important success and error for the promise
-            element.onload = function () {
-              resolve(url);
-            };
-            element.onerror = function () {
-              reject(url);
-            };
-
-            // Need to set different attributes depending on tag type
-            switch (tag) {
-              case 'script':
-                element.async = true;
-                break;
-              case 'link':
-                element.type = 'text/css';
-                element.rel = 'stylesheet';
-                attr = 'href';
-                parent = 'head';
-            }
-
-            // Inject into document to kick off loading
-            element[attr] = url;
-            document[parent].appendChild(element);
-          });
+        return {
+          css: _load("link"),
+          js: _load("script"),
         };
-      }
+      })();
 
-      return {
-        css: _load('link'),
-        js: _load('script')
-      }
-    })();
+      (function loadFiles() {
+        load.css("/assets/vendor/prism/css/prism.css?v=037246b580");
+        load.css("/assets/vendor/sweetalert/sweetalert.css?v=037246b580");
 
-
-    (function loadFiles() {
-      load.css('/assets/vendor/prism/css/prism.css?v=037246b580');
-      load.css('/assets/vendor/sweetalert/sweetalert.css?v=037246b580');
-
-      Promise.all([
-        load.js('/assets/vendor/polyfills/fetch.min.js?v=037246b580'),
-        load.js('/assets/vendor/waypoints/waypoints.min.js?v=037246b580'),
-        load.js('/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580'),
-        load.js('/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580'),
-        load.js('/assets/vendor/readingtime/readingtime.min.js?v=037246b580'),
-        load.js('/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580'),
-        load.js('/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580'),
-        load.js('https://cookies.miguelra.com/miguelraCookies.js')
-      ]).then(function () {
-        load.js('/assets/js/script.js?v=037246b580').then(function () {
-          load.js('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1');
-          load.js('/assets/vendor/prism/js/prism.min.js?v=037246b580');
-          miguelraCookies({ server: "miguelra.com", color: "666666" });
+        Promise.all([
+          load.js("/assets/vendor/polyfills/fetch.min.js?v=037246b580"),
+          load.js("/assets/vendor/waypoints/waypoints.min.js?v=037246b580"),
+          load.js("/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580"),
+          load.js("/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580"),
+          load.js("/assets/vendor/readingtime/readingtime.min.js?v=037246b580"),
+          load.js("/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580"),
+          load.js(
+            "/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580"
+          ),
+        ]).then(function () {
+          load.js("/assets/js/script.js?v=037246b580").then(function () {
+            load.js(
+              "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1"
+            );
+            load.js("/assets/vendor/prism/js/prism.min.js?v=037246b580");
+          });
         });
-      });
-    }());
-  </script>
-</body>
-
+      })();
+    </script>
+  </body>
 </html>
