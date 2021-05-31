@@ -1,164 +1,260 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta
+      name="google-site-verification"
+      content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U"
+    />
 
-<head>
-  <meta name="google-site-verification" content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>¿Cómo funciona stdClass? (Métodos mágicos)</title>
+    <meta
+      name="description"
+      content="A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos."
+    />
 
-  <title>¿Cómo funciona stdClass? (Métodos mágicos)</title>
-  <meta name="description" content="A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos.">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png" />
 
-  <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css" />
 
-  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css">
+    <link
+      rel="canonical"
+      href="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/"
+    />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link
+      rel="amphtml"
+      href="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/amp/"
+    />
 
-  <link rel="canonical" href="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/amp/">
-    
-    <meta property="og:site_name" content="Miguel Rodríguez">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="¿Cómo funciona stdClass? (Métodos mágicos)">
-    <meta property="og:description" content="A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos.">
-    <meta property="og:url" content="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/">
-    <meta property="og:image" content="http://www.miguelra.com/content/images/2017/01/php.jpg">
-    <meta property="article:published_time" content="2017-01-14T17:47:43.000Z">
-    <meta property="article:modified_time" content="2017-01-14T17:56:30.000Z">
-    <meta property="article:tag" content="PHP">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="¿Cómo funciona stdClass? (Métodos mágicos)">
-    <meta name="twitter:description" content="A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos.">
-    <meta name="twitter:url" content="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/">
-    <meta name="twitter:image" content="http://www.miguelra.com/content/images/2017/01/php.jpg">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Miguel Rodríguez">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="PHP">
-    
+    <meta property="og:site_name" content="Miguel Rodríguez" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="¿Cómo funciona stdClass? (Métodos mágicos)"
+    />
+    <meta
+      property="og:description"
+      content="A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos."
+    />
+    <meta
+      property="og:url"
+      content="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/"
+    />
+    <meta
+      property="og:image"
+      content="http://www.miguelra.com/content/images/2017/01/php.jpg"
+    />
+    <meta
+      property="article:published_time"
+      content="2017-01-14T17:47:43.000Z"
+    />
+    <meta property="article:modified_time" content="2017-01-14T17:56:30.000Z" />
+    <meta property="article:tag" content="PHP" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="¿Cómo funciona stdClass? (Métodos mágicos)"
+    />
+    <meta
+      name="twitter:description"
+      content="A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos."
+    />
+    <meta
+      name="twitter:url"
+      content="http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/"
+    />
+    <meta
+      name="twitter:image"
+      content="http://www.miguelra.com/content/images/2017/01/php.jpg"
+    />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Miguel Rodríguez" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="PHP" />
+
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Miguel Rodríguez",
-        "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Miguel Rodríguez",
-        "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
-        "url": "http://www.miguelra.com/author/miguel/",
-        "sameAs": [],
-        "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
-    },
-    "headline": "¿Cómo funciona stdClass? (Métodos mágicos)",
-    "url": "http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/",
-    "datePublished": "2017-01-14T17:47:43.000Z",
-    "dateModified": "2017-01-14T17:56:30.000Z",
-    "image": "http://www.miguelra.com/content/images/2017/01/php.jpg",
-    "keywords": "PHP",
-    "description": "A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos.",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://www.miguelra.com"
-    }
-}
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Miguel Rodríguez",
+          "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Miguel Rodríguez",
+          "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
+          "url": "http://www.miguelra.com/author/miguel/",
+          "sameAs": [],
+          "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
+        },
+        "headline": "¿Cómo funciona stdClass? (Métodos mágicos)",
+        "url": "http://www.miguelra.com/como-funciona-stdclass-metodos-magicos/",
+        "datePublished": "2017-01-14T17:47:43.000Z",
+        "dateModified": "2017-01-14T17:56:30.000Z",
+        "image": "http://www.miguelra.com/content/images/2017/01/php.jpg",
+        "keywords": "PHP",
+        "description": "A todos en un momento de nuestra vida nos ha llegado esta duda, así que vamos a ver como hace stdClass para crear a atributos que no definidos.",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "http://www.miguelra.com"
+        }
+      }
     </script>
 
-    <script type="text/javascript" src="../shared/ghost-url.min_v%3D037246b580.js"></script>
-<script type="text/javascript">
-ghost.init({
-	clientId: "ghost-frontend",
-	clientSecret: "d1a707dee088"
-});
-</script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Miguel Rodríguez" href="http://www.miguelra.com/rss/">
-</head>
+    <script
+      type="text/javascript"
+      src="../shared/ghost-url.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      ghost.init({
+        clientId: "ghost-frontend",
+        clientSecret: "d1a707dee088",
+      });
+    </script>
+    <meta name="generator" content="Ghost 0.11" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Miguel Rodríguez"
+      href="http://www.miguelra.com/rss/"
+    />
+  </head>
 
-<body class="post-template tag-php">
-
-  
-  
-
-<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" style="background-image: url(../content/images/2017/01/php.jpg)">
-
-    <div class="inner">
+  <body class="post-template tag-php">
+    <header
+      id="masthead"
+      class="
+        blog-background
+        overlay
+        align-center align-middle
+        animated
+        from-bottom
+      "
+      style="background-image: url(../content/images/2017/01/php.jpg)"
+    >
+      <div class="inner">
         <div class="container">
-            <a class="brand light" href="http://www.miguelra.com" role="banner">
-                    <img src="../content/images/2016/11/logo.png" alt="Blog Logo">
-            </a>
-            <h1 class="blog-title light">
-                Miguel Rodríguez
-            </h1>
-            <h2 class="blog-description light bordered bordered-top">
-                
-            </h2>
+          <a class="brand light" href="http://www.miguelra.com" role="banner">
+            <img src="../content/images/2016/11/logo.png" alt="Blog Logo" />
+          </a>
+          <h1 class="blog-title light">Miguel Rodríguez</h1>
+          <h2 class="blog-description light bordered bordered-top"></h2>
         </div>
-    </div>
-    <div class="decor-wrapper">
-        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="header-decor"
+          class="decor bottom"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"/>
-            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="medium left"
+            d="M0 100 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 100 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
 
-            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"/>
-            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"/>
+          <path
+            class="small left"
+            d="M0 100 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 100 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
 
-            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"/>
+          <path
+            d="M0 99.9 L50 49.9 L100 99.9 L0 99.9"
+            fill="rgba(255,255,255, 1)"
+          />
 
-            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"/>
-
+          <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)" />
         </svg>
+      </div>
+    </header>
 
-    </div>
-</header>
+    <div id="main" class="content" role="main">
+      <div class="container">
+        <div class="row">
+          <article class="post tag-php post post col-md-9">
+            <header class="post-header">
+              <h1 class="post-title text-center hyper lighter bordered-bottom">
+                ¿Cómo funciona stdClass? (Métodos mágicos)
+              </h1>
+              <div class="post-info text-center small">
+                <time datetime="2017-01-14" class="post-time">14/01/2017</time>
+                en <span class="post-tags"><a href="../tag/php/">PHP</a></span>
+              </div>
+            </header>
+            <div class="post-body bordered-bottom">
+              <div class="addthis_inline_share_toolbox"></div>
+              <p>
+                A todos en un momento de nuestra vida nos ha llegado esta duda,
+                así que en este artículo vamos a ver como hace stdClass para
+                crear a atributos que no están definidos en la clase.
+              </p>
 
-  <div id="main" class="content" role="main">
-    <div class="container">
+              <p>
+                <strong
+                  >¿Cómo puedo crear atributos que no están definidos en el
+                  objeto?</strong
+                >
+              </p>
 
-      <div class="row">
-        <article class="post tag-php post post col-md-9">
+              <p>Vamos a descubrirlo …</p>
 
+              <p>
+                Antes que nada tenemos que tener claro que es exactamente la
+                clase <strong>stdClass</strong>
+              </p>
 
+              <h2 id="quesstdclass">¿Qué es stdClass?</h2>
 
-          <header class="post-header">
-            <h1 class="post-title text-center hyper lighter bordered-bottom">¿Cómo funciona stdClass? (Métodos mágicos)</h1>
-            <div class="post-info text-center small">
-              <time datetime="2017-01-14" class="post-time">14/01/2017</time>
-               en <span class="post-tags"><a href="../tag/php/">PHP</a></span>
-            </div>
-          </header>
-          <div class="post-body bordered-bottom">
-            <div class="addthis_inline_share_toolbox"></div>
-            <p>A todos en un momento de nuestra vida nos ha llegado esta duda, así que en este artículo vamos a ver como hace stdClass para crear a atributos que no están definidos en la clase.</p>
+              <p>
+                Es una
+                <a href="http://php.net/manual/es/reserved.classes.php"
+                  >clase predefinida</a
+                >
+                en php, que no tiene ningún atributo ni métodos. <br />
+                Y la podemos usar cuando queremos crear un objeto genérico al
+                que después podemos agregar propiedades.
+              </p>
 
-<p><strong>¿Cómo puedo crear atributos que no están definidos en el objeto?</strong></p>
+              <p>Vamos a ver como funciona:</p>
 
-<p>Vamos a descubrirlo …</p>
-
-<p>Antes que nada tenemos que tener claro que es exactamente la clase <strong>stdClass</strong></p>
-
-<h2 id="quesstdclass">¿Qué es stdClass?</h2>
-
-<p>Es una <a href="http://php.net/manual/es/reserved.classes.php">clase predefinida</a> en php, que no tiene ningún atributo ni métodos. <br>
-Y la podemos usar cuando queremos crear un objeto genérico al que después podemos agregar propiedades.</p>
-
-<p>Vamos a ver como funciona:</p>
-
-<pre><code class="language-php">&lt;?php  
+              <pre><code class="language-php">&lt;?php  
   $user = new stdClass;
   $user-&gt;name = 'Miguel';
   /*
@@ -170,37 +266,128 @@ Y la podemos usar cuando queremos crear un objeto genérico al que después pode
 ?&gt;
 </code></pre>
 
-<p>¿Cómo está creando un atributo que no existe?</p>
+              <p>¿Cómo está creando un atributo que no existe?</p>
 
-<h2 id="mtodosmgicosenphp">Métodos mágicos en PHP</h2>
+              <h2 id="mtodosmgicosenphp">Métodos mágicos en PHP</h2>
 
-<p>Son propiedades o funciones que se ejecutan por invocación a través de eventos que suceden sobre el objeto.</p>
+              <p>
+                Son propiedades o funciones que se ejecutan por invocación a
+                través de eventos que suceden sobre el objeto.
+              </p>
 
-<p>Son las siguientes: </p>
+              <p>Son las siguientes:</p>
 
-<ul>
-<li><p><strong>__construct()</strong>: Se ejecuta en la creación del objeto.</p></li>
-<li><p><strong>__destruct()</strong>: Se llama cuando se elimina el objeto.</p></li>
-<li><p><strong>__call()</strong>: Se lanza cuando se intenta acceder a un método al que no se tiene acceso (privado, protegido).</p></li>
-<li><p><strong>__callStatic()</strong>: Igual que call, pero para métodos en un contexto estático.</p></li>
-<li><p><strong>__get()</strong>: Se utiliza para consultar datos a partir de propiedades inaccesibles.</p></li>
-<li><p><strong>__set()</strong>: Se ejecuta al escribir datos sobre propiedades inaccesibles.</p></li>
-<li><p><strong>__isset()</strong>: Se lanza al llamar a isset() o a empty() sobre propiedades inaccesibles.</p></li>
-<li><p><strong>__unset()</strong>: Se invoca cuando se usa unset() sobre propiedades inaccesibles.</p></li>
-<li><p><strong>__sleep()</strong>: Se ejecuta antes de cualquier serialización. Devuelve un array con las keys que queremos serializar, para evitar algunos campos.</p></li>
-<li><p><strong>__wakeup()</strong>: Es usado para restablecer las conexiones de base de datos que se puedan haber perdido durante la serialización y realizar otras tareas de reinicialización.</p></li>
-<li><p><strong>__toString()</strong>: Nos permite crear nuestra implementación a la representación en String de nuestro objeto.</p></li>
-<li><p><strong>__invoke()</strong>: Es llamado cuando un script intenta llamar a un objeto como si fuera una función.</p></li>
-<li><p><strong><em>_set</em>state()</strong>: Este método static es llamado para las clases exportadas por var_export().</p></li>
-<li><p><strong><em>_clone()</em></strong>: Una vez que la clonación ha finalizado, se llamará al método _clone() del nuevo objeto (si el método __clone() estuviera definido), para permitirle realizar los cambios necesarios sobre sus propiedades.</p></li>
-<li><p><strong><em>_debugInfo()</em></strong>: Este método es invocado por vardump() al volcar un objeto para obtener las propiedades que deberían mostrarse.</p></li>
-</ul>
+              <ul>
+                <li>
+                  <p>
+                    <strong>__construct()</strong>: Se ejecuta en la creación
+                    del objeto.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__destruct()</strong>: Se llama cuando se elimina el
+                    objeto.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__call()</strong>: Se lanza cuando se intenta
+                    acceder a un método al que no se tiene acceso (privado,
+                    protegido).
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__callStatic()</strong>: Igual que call, pero para
+                    métodos en un contexto estático.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__get()</strong>: Se utiliza para consultar datos a
+                    partir de propiedades inaccesibles.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__set()</strong>: Se ejecuta al escribir datos sobre
+                    propiedades inaccesibles.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__isset()</strong>: Se lanza al llamar a isset() o a
+                    empty() sobre propiedades inaccesibles.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__unset()</strong>: Se invoca cuando se usa unset()
+                    sobre propiedades inaccesibles.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__sleep()</strong>: Se ejecuta antes de cualquier
+                    serialización. Devuelve un array con las keys que queremos
+                    serializar, para evitar algunos campos.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__wakeup()</strong>: Es usado para restablecer las
+                    conexiones de base de datos que se puedan haber perdido
+                    durante la serialización y realizar otras tareas de
+                    reinicialización.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__toString()</strong>: Nos permite crear nuestra
+                    implementación a la representación en String de nuestro
+                    objeto.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>__invoke()</strong>: Es llamado cuando un script
+                    intenta llamar a un objeto como si fuera una función.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong><em>_set</em>state()</strong>: Este método static es
+                    llamado para las clases exportadas por var_export().
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong><em>_clone()</em></strong
+                    >: Una vez que la clonación ha finalizado, se llamará al
+                    método _clone() del nuevo objeto (si el método __clone()
+                    estuviera definido), para permitirle realizar los cambios
+                    necesarios sobre sus propiedades.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong><em>_debugInfo()</em></strong
+                    >: Este método es invocado por vardump() al volcar un objeto
+                    para obtener las propiedades que deberían mostrarse.
+                  </p>
+                </li>
+              </ul>
 
-<p>Estos son todos los eventos mágicos que podemos usar. Si nos damos cuenta en lo que hacen cada uno para implementar la funcionalidad de stdClass tenemos que usar <code>__set()</code>.</p>
+              <p>
+                Estos son todos los eventos mágicos que podemos usar. Si nos
+                damos cuenta en lo que hacen cada uno para implementar la
+                funcionalidad de stdClass tenemos que usar <code>__set()</code>.
+              </p>
 
-<p>Veamos con un ejemplo como se implementaría:</p>
+              <p>Veamos con un ejemplo como se implementaría:</p>
 
-<pre><code class="language-php">class myObject  
+              <pre><code class="language-php">class myObject  
 {
   public function __set($name, $value) {
     $this-&gt;{$name} = $value;
@@ -208,9 +395,9 @@ Y la podemos usar cuando queremos crear un objeto genérico al que después pode
 }
 </code></pre>
 
-<p>y lo usaríamos como normalmente usamos stdClass</p>
+              <p>y lo usaríamos como normalmente usamos stdClass</p>
 
-<pre><code class="language-php">$obj = new myObject;
+              <pre><code class="language-php">$obj = new myObject;
 
 $obj-&gt;nombre = "Miguel";
 $obj-&gt;apellido = "Rodríguez";
@@ -226,219 +413,266 @@ myObject Object
 */
 </code></pre>
 
-<h2 id="conclusin">Conclusión</h2>
+              <h2 id="conclusin">Conclusión</h2>
 
-<p>Los eventos mágicos pueden ser interesantes para detectar eventos y realizar acciones que veamos pertinentes para cada problema.</p>
-
-<p>Pero tenemos que tener cuidado, dado que una implementación descuidad nos dará problemas de seguridad <a href="http://www.elladodelmal.com/2014/11/ataques-de-php-object-injection-en.html">Ataques de PHP Object Injection en aplicaciones web</a></p>
-          </div>
-
-          <footer class="post-footer">
-
-            <div class="post-share text-center">
-              <p class="light">
-                ¿Te ha gustado este artículo? compartelo para que más gente también pueda leerlo ☺️
+              <p>
+                Los eventos mágicos pueden ser interesantes para detectar
+                eventos y realizar acciones que veamos pertinentes para cada
+                problema.
               </p>
-              <div class="addthis_inline_share_toolbox_ypuz"></div>
+
+              <p>
+                Pero tenemos que tener cuidado, dado que una implementación
+                descuidad nos dará problemas de seguridad
+                <a
+                  href="http://www.elladodelmal.com/2014/11/ataques-de-php-object-injection-en.html"
+                  >Ataques de PHP Object Injection en aplicaciones web</a
+                >
+              </p>
             </div>
 
-            <div class="post-author text-center">
+            <footer class="post-footer">
+              <div class="post-share text-center">
+                <p class="light">
+                  ¿Te ha gustado este artículo? compartelo para que más gente
+                  también pueda leerlo ☺️
+                </p>
+                <div class="addthis_inline_share_toolbox_ypuz"></div>
+              </div>
 
-                  <img src="../content/images/2016/11/profile.jpg" itemprop="image" class="post-avatar img-circle img-responsive">
+              <div class="post-author text-center">
+                <img
+                  src="../content/images/2016/11/profile.jpg"
+                  itemprop="image"
+                  class="post-avatar img-circle img-responsive"
+                />
                 <h4 class="bordered-bottom">Miguel Rodríguez</h4>
-                <p>¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas.</p>
-            </div>
+                <p>
+                  ¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo
+                  que más me gusta de mi trabajo es estar en constante
+                  aprendizaje, al tanto de las últimas noticias y trastear con
+                  nuevas ideas.
+                </p>
+              </div>
 
-            <div class="post-comments text-center">
-              <div id="disqus_thread"></div>
-              <script>
-                (function() { // DON'T EDIT BELOW THIS LINE
-                  var d = document,
-                    s = d.createElement('script');
-                  s.src = '//miguelra.disqus.com/embed.js';
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-                })();
-              </script>
-            </div>
-
-          </footer>
-
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <div class="reading-time-indicator js-post-sticky-footer">
-    <div class="post-reading-time visible js-post-reading-time">
-      <div class="percent js-percent-count">0%</div>
-      <progress value="0" class="read-progress-indicator single">
-          <div class="progress-container">
-            <span class="progress-bar"></span>
-          </div>
-      </progress>
-      <div class="read-estimation">
-        <div class="read-estimation-content">
-          <div class="title">¿Cómo funciona stdClass? (Métodos mágicos)</div>
-          <div class="estimated-time">
-            <span class="js-word-count"></span> palabras - <span class="eta"></span>.
-          </div>
+              <div class="post-comments text-center">
+                <div id="disqus_thread"></div>
+                <script>
+                  (function () {
+                    // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                      s = d.createElement("script");
+                    s.src = "//miguelra.disqus.com/embed.js";
+                    s.setAttribute("data-timestamp", +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
+              </div>
+            </footer>
+          </article>
         </div>
       </div>
     </div>
-    <div class="js-prev-next-post prev-next-post">
-      <div class="prev-block">
+
+    <div class="reading-time-indicator js-post-sticky-footer">
+      <div class="post-reading-time visible js-post-reading-time">
+        <div class="percent js-percent-count">0%</div>
+        <progress value="0" class="read-progress-indicator single">
+          <div class="progress-container">
+            <span class="progress-bar"></span>
+          </div>
+        </progress>
+        <div class="read-estimation">
+          <div class="read-estimation-content">
+            <div class="title">¿Cómo funciona stdClass? (Métodos mágicos)</div>
+            <div class="estimated-time">
+              <span class="js-word-count"></span> palabras -
+              <span class="eta"></span>.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js-prev-next-post prev-next-post">
+        <div class="prev-block">
           <a href="../deshabilitar-scroll-con-javascript/">
             <span class="image">
-                <img src="../content/images/2016/12/javascript-3.jpg" class="post-image-thumbnail">
+              <img
+                src="../content/images/2016/12/javascript-3.jpg"
+                class="post-image-thumbnail"
+              />
             </span>
             <span class="description">
               <span class="prev-next-label">Anterior</span>
               <span class="post-title">Deshabilitar scroll con Javascript</span>
             </span>
           </a>
-      </div>
-      <div class="next-block">
+        </div>
+        <div class="next-block"></div>
       </div>
     </div>
-  </div>
 
-
-<footer id="footer" class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(../content/images/2016/12/background-coding.jpg)">
-    <div class="inner">
+    <footer
+      id="footer"
+      class="blog-background overlay text-center align-middle animated from-top"
+      style="
+        background-image: url(../content/images/2016/12/background-coding.jpg);
+      "
+    >
+      <div class="inner">
         <div class="container">
-
-            <ul class="social-icons">
-              <li>
-                 <a href="https://github.com/miguel-ra">
-                      <i class="icon-github"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://codepen.io/miguelra/">
-                      <i class="icon-codepen"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://twitter.com/theRollerShark">
-                      <i class="icon-twitter"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://www.facebook.com/miguelrodriguezamarelle">
-                      <i class="icon-facebook"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
-                      <i class="icon-linkedin"></i>
-                  </a>
-              </li>
-            </ul>
-            <p class="copy-text">
-              Copyright © 2016 MiguelRA.
-            </p>
+          <ul class="social-icons">
+            <li>
+              <a href="https://github.com/miguel-ra">
+                <i class="icon-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/miguelra/">
+                <i class="icon-codepen"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/theRollerShark">
+                <i class="icon-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.facebook.com/miguelrodriguezamarelle">
+                <i class="icon-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
+                <i class="icon-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="copy-text">Copyright © 2016 MiguelRA.</p>
         </div>
-    </div>
-        <div class="decor-wrapper">
-            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="footer-decor"
+          class="decor top"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+          <path
+            class="medium left"
+            d="M0 0 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 0 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
 
-                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"/>
-                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="small left"
+            d="M0 0 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 0 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
 
-                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"/>
-                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"/>
+          <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)" />
 
-                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"/>
+          <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)" />
+        </svg>
+      </div>
+    </footer>
 
-                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"/>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      var load = (function () {
+        function _load(tag) {
+          return function (url) {
+            // This promise will be used by Promise.all to determine success or failure
+            return new Promise(function (resolve, reject) {
+              var element = document.createElement(tag);
+              var parent = "body";
+              var attr = "src";
 
-            </svg>
-        </div>
-</footer>
+              // Important success and error for the promise
+              element.onload = function () {
+                resolve(url);
+              };
+              element.onerror = function () {
+                reject(url);
+              };
 
+              // Need to set different attributes depending on tag type
+              switch (tag) {
+                case "script":
+                  element.async = true;
+                  break;
+                case "link":
+                  element.type = "text/css";
+                  element.rel = "stylesheet";
+                  attr = "href";
+                  parent = "head";
+              }
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              // Inject into document to kick off loading
+              element[attr] = url;
+              document[parent].appendChild(element);
+            });
+          };
+        }
 
-    ga('create', 'UA-44786119-5', 'auto');
-    ga('send', 'pageview');
-</script>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script type="text/javascript" src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"></script>
-  <script type="text/javascript">
-    var load = (function () {
-      function _load(tag) {
-        return function (url) {
-          // This promise will be used by Promise.all to determine success or failure
-          return new Promise(function (resolve, reject) {
-            var element = document.createElement(tag);
-            var parent = 'body';
-            var attr = 'src';
-
-            // Important success and error for the promise
-            element.onload = function () {
-              resolve(url);
-            };
-            element.onerror = function () {
-              reject(url);
-            };
-
-            // Need to set different attributes depending on tag type
-            switch (tag) {
-              case 'script':
-                element.async = true;
-                break;
-              case 'link':
-                element.type = 'text/css';
-                element.rel = 'stylesheet';
-                attr = 'href';
-                parent = 'head';
-            }
-
-            // Inject into document to kick off loading
-            element[attr] = url;
-            document[parent].appendChild(element);
-          });
+        return {
+          css: _load("link"),
+          js: _load("script"),
         };
-      }
+      })();
 
-      return {
-        css: _load('link'),
-        js: _load('script')
-      }
-    })();
+      (function loadFiles() {
+        load.css("/assets/vendor/prism/css/prism.css?v=037246b580");
+        load.css("/assets/vendor/sweetalert/sweetalert.css?v=037246b580");
 
-
-    (function loadFiles() {
-      load.css('/assets/vendor/prism/css/prism.css?v=037246b580');
-      load.css('/assets/vendor/sweetalert/sweetalert.css?v=037246b580');
-
-      Promise.all([
-        load.js('/assets/vendor/polyfills/fetch.min.js?v=037246b580'),
-        load.js('/assets/vendor/waypoints/waypoints.min.js?v=037246b580'),
-        load.js('/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580'),
-        load.js('/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580'),
-        load.js('/assets/vendor/readingtime/readingtime.min.js?v=037246b580'),
-        load.js('/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580'),
-        load.js('/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580'),
-        load.js('https://cookies.miguelra.com/miguelraCookies.js')
-      ]).then(function () {
-        load.js('/assets/js/script.js?v=037246b580').then(function () {
-          load.js('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1');
-          load.js('/assets/vendor/prism/js/prism.min.js?v=037246b580');
-          miguelraCookies({ server: "miguelra.com", color: "666666" });
+        Promise.all([
+          load.js("/assets/vendor/polyfills/fetch.min.js?v=037246b580"),
+          load.js("/assets/vendor/waypoints/waypoints.min.js?v=037246b580"),
+          load.js("/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580"),
+          load.js("/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580"),
+          load.js("/assets/vendor/readingtime/readingtime.min.js?v=037246b580"),
+          load.js("/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580"),
+          load.js(
+            "/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580"
+          ),
+        ]).then(function () {
+          load.js("/assets/js/script.js?v=037246b580").then(function () {
+            load.js(
+              "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1"
+            );
+            load.js("/assets/vendor/prism/js/prism.min.js?v=037246b580");
+          });
         });
-      });
-    }());
-  </script>
-</body>
-
+      })();
+    </script>
+  </body>
 </html>

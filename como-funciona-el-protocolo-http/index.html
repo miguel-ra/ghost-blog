@@ -1,997 +1,1307 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta
+      name="google-site-verification"
+      content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U"
+    />
 
-<head>
-  <meta name="google-site-verification" content="gO0C3waQo_Srk8NAsXcUn50_hd-CY_DQb-a_ajojz-U">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>¿Cómo funciona el protocolo HTTP?</title>
+    <meta
+      name="description"
+      content='HTTP es un protocolo, para la transferencia de contenido HTML "HyperText Markup Language" en su mayoría, entre un cliente y un servidor.'
+    />
 
-  <title>¿Cómo funciona el protocolo HTTP?</title>
-  <meta name="description" content="HTTP es un protocolo, para la transferencia de contenido HTML &quot;HyperText Markup Language&quot; en su mayoría, entre un cliente y un servidor.">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png" />
 
-  <link rel="shortcut icon" href="../assets/favicon_v%3D037246b580.png">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css" />
 
-  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/miguelra.css">
+    <link
+      rel="canonical"
+      href="http://www.miguelra.com/como-funciona-el-protocolo-http/"
+    />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link
+      rel="amphtml"
+      href="http://www.miguelra.com/como-funciona-el-protocolo-http/amp/"
+    />
 
-  <link rel="canonical" href="http://www.miguelra.com/como-funciona-el-protocolo-http/">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="amphtml" href="http://www.miguelra.com/como-funciona-el-protocolo-http/amp/">
-    
-    <meta property="og:site_name" content="Miguel Rodríguez">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="¿Cómo funciona el protocolo HTTP?">
-    <meta property="og:description" content="HTTP es un protocolo, para la transferencia de contenido HTML &quot;HyperText Markup Language&quot; en su mayoría, entre un cliente y un servidor.">
-    <meta property="og:url" content="http://www.miguelra.com/como-funciona-el-protocolo-http/">
-    <meta property="og:image" content="http://www.miguelra.com/content/images/2016/12/http.jpg">
-    <meta property="article:published_time" content="2016-04-23T22:03:00.000Z">
-    <meta property="article:modified_time" content="2016-12-08T02:31:16.000Z">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="¿Cómo funciona el protocolo HTTP?">
-    <meta name="twitter:description" content="HTTP es un protocolo, para la transferencia de contenido HTML &quot;HyperText Markup Language&quot; en su mayoría, entre un cliente y un servidor.">
-    <meta name="twitter:url" content="http://www.miguelra.com/como-funciona-el-protocolo-http/">
-    <meta name="twitter:image" content="http://www.miguelra.com/content/images/2016/12/http.jpg">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="Miguel Rodríguez">
-    
+    <meta property="og:site_name" content="Miguel Rodríguez" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="¿Cómo funciona el protocolo HTTP?" />
+    <meta
+      property="og:description"
+      content='HTTP es un protocolo, para la transferencia de contenido HTML "HyperText Markup Language" en su mayoría, entre un cliente y un servidor.'
+    />
+    <meta
+      property="og:url"
+      content="http://www.miguelra.com/como-funciona-el-protocolo-http/"
+    />
+    <meta
+      property="og:image"
+      content="http://www.miguelra.com/content/images/2016/12/http.jpg"
+    />
+    <meta
+      property="article:published_time"
+      content="2016-04-23T22:03:00.000Z"
+    />
+    <meta property="article:modified_time" content="2016-12-08T02:31:16.000Z" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="¿Cómo funciona el protocolo HTTP?" />
+    <meta
+      name="twitter:description"
+      content='HTTP es un protocolo, para la transferencia de contenido HTML "HyperText Markup Language" en su mayoría, entre un cliente y un servidor.'
+    />
+    <meta
+      name="twitter:url"
+      content="http://www.miguelra.com/como-funciona-el-protocolo-http/"
+    />
+    <meta
+      name="twitter:image"
+      content="http://www.miguelra.com/content/images/2016/12/http.jpg"
+    />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Miguel Rodríguez" />
+
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Miguel Rodríguez",
-        "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Miguel Rodríguez",
-        "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
-        "url": "http://www.miguelra.com/author/miguel/",
-        "sameAs": [],
-        "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
-    },
-    "headline": "¿Cómo funciona el protocolo HTTP?",
-    "url": "http://www.miguelra.com/como-funciona-el-protocolo-http/",
-    "datePublished": "2016-04-23T22:03:00.000Z",
-    "dateModified": "2016-12-08T02:31:16.000Z",
-    "image": "http://www.miguelra.com/content/images/2016/12/http.jpg",
-    "description": "HTTP es un protocolo, para la transferencia de contenido HTML &quot;HyperText Markup Language&quot; en su mayoría, entre un cliente y un servidor.",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://www.miguelra.com"
-    }
-}
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Miguel Rodríguez",
+          "logo": "http://www.miguelra.com/content/images/2016/11/logo.png"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Miguel Rodríguez",
+          "image": "http://www.miguelra.com/content/images/2016/11/profile.jpg",
+          "url": "http://www.miguelra.com/author/miguel/",
+          "sameAs": [],
+          "description": "¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas."
+        },
+        "headline": "¿Cómo funciona el protocolo HTTP?",
+        "url": "http://www.miguelra.com/como-funciona-el-protocolo-http/",
+        "datePublished": "2016-04-23T22:03:00.000Z",
+        "dateModified": "2016-12-08T02:31:16.000Z",
+        "image": "http://www.miguelra.com/content/images/2016/12/http.jpg",
+        "description": "HTTP es un protocolo, para la transferencia de contenido HTML &quot;HyperText Markup Language&quot; en su mayoría, entre un cliente y un servidor.",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "http://www.miguelra.com"
+        }
+      }
     </script>
 
-    <script type="text/javascript" src="../shared/ghost-url.min_v%3D037246b580.js"></script>
-<script type="text/javascript">
-ghost.init({
-	clientId: "ghost-frontend",
-	clientSecret: "d1a707dee088"
-});
-</script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Miguel Rodríguez" href="http://www.miguelra.com/rss/">
-</head>
+    <script
+      type="text/javascript"
+      src="../shared/ghost-url.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      ghost.init({
+        clientId: "ghost-frontend",
+        clientSecret: "d1a707dee088",
+      });
+    </script>
+    <meta name="generator" content="Ghost 0.11" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Miguel Rodríguez"
+      href="http://www.miguelra.com/rss/"
+    />
+  </head>
 
-<body class="post-template">
-
-  
-  
-
-<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" style="background-image: url(../content/images/2016/12/http.jpg)">
-
-    <div class="inner">
+  <body class="post-template">
+    <header
+      id="masthead"
+      class="
+        blog-background
+        overlay
+        align-center align-middle
+        animated
+        from-bottom
+      "
+      style="background-image: url(../content/images/2016/12/http.jpg)"
+    >
+      <div class="inner">
         <div class="container">
-            <a class="brand light" href="http://www.miguelra.com" role="banner">
-                    <img src="../content/images/2016/11/logo.png" alt="Blog Logo">
-            </a>
-            <h1 class="blog-title light">
-                Miguel Rodríguez
-            </h1>
-            <h2 class="blog-description light bordered bordered-top">
-                
-            </h2>
+          <a class="brand light" href="http://www.miguelra.com" role="banner">
+            <img src="../content/images/2016/11/logo.png" alt="Blog Logo" />
+          </a>
+          <h1 class="blog-title light">Miguel Rodríguez</h1>
+          <h2 class="blog-description light bordered bordered-top"></h2>
         </div>
-    </div>
-    <div class="decor-wrapper">
-        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="header-decor"
+          class="decor bottom"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"/>
-            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="medium left"
+            d="M0 100 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 100 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .3)"
+          />
 
-            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"/>
-            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"/>
+          <path
+            class="small left"
+            d="M0 100 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 100 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .5)"
+          />
 
-            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"/>
+          <path
+            d="M0 99.9 L50 49.9 L100 99.9 L0 99.9"
+            fill="rgba(255,255,255, 1)"
+          />
 
-            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"/>
-
+          <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)" />
         </svg>
-
-    </div>
-</header>
-
-  <div id="main" class="content" role="main">
-    <div class="container">
-
-      <div class="row">
-        <article class="post post post col-md-9">
-
-
-
-          <header class="post-header">
-            <h1 class="post-title text-center hyper lighter bordered-bottom">¿Cómo funciona el protocolo HTTP?</h1>
-            <div class="post-info text-center small">
-              <time datetime="2016-04-23" class="post-time">23/04/2016</time>
-              
-            </div>
-          </header>
-          <div class="post-body bordered-bottom">
-            <div class="addthis_inline_share_toolbox"></div>
-            <p>Como veíamos en <a href="../que-pasa-cuando-te-conectas-a-una-web/">¿Qué pasa cuando te conectas a una web?</a>, HTTP es un protocolo, para la transferencia de contenido HTML "HyperText Markup Language" en su mayoría, entre un cliente y un servidor, indicado mediante una cadena de caracteres o URL "Uniform Resource Locator".</p>
-
-<h2 id="quesunaurlquindicaunaurl">¿Qué es una URL?¿Qué indica una URL?</h2>
-
-<p>Una URL es una cadena que identifica los recursos de una red y se descompone en el siguiente formato:</p>
-
-<p><strong>esquema://host[:puerto][/ruta][?consulta]</strong></p>
-
-<p>Algunos de los <strong>esquemas</strong> más usados son los siguientes:</p>
-
-<ul>
-<li><code>http</code> - Recursos HTML.</li>
-<li><code>https</code> - HTTP encriptado, para realizar conexiones seguras, mediante SSL "Secure Sockets Layer".</li>
-<li><code>ftp</code> - Transferencia de archivos.</li>
-<li><code>mailto</code> - Direcciones de correo electrónico.</li>
-<li><code>file</code> - Recursos disponibles en una red local.</li>
-<li><code>data</code> - Agregar elementos en los documentos (Por ejemplo imágenes codificadas en base64).</li>
-</ul>
-
-<p><strong>¿Qué indican el resto de los campos?</strong> <strong>Host</strong>: Dominio o Ip del dispositivo a que queremos acceder. <strong>Puerto</strong>: Si no se indica, el puerto por defecto para http es 80. <strong>Ruta</strong>: Indica la carpeta y el recurso al que queremos acceder, los servidores suelen tener configurado recursos por defecto cuando no se indica en la URL, el más común es <strong>index.html</strong>. Otros ejemplos que suelen estar preconfigurados en los servidores son : index.php, index.shtml, index.jsp, default.asp. <strong>Consulta o cadena de búsqueda</strong>: Indica variables a través de la url (<code>?nombre=miguel&amp;apellido=rodriguez</code>)</p>
-
-<h2 id="cmoserealizalacomunicacinhttp">¿Cómo se realiza la comunicación HTTP?</h2>
-
-<p>La comunicación se puede simplificar en estos dos pasos:</p>
-
-<ul>
-<li>El navegador manda una <strong>petición HTTP</strong> y solicita un archivo</li>
-<li>El servidor responde con la información, que es descifrado por el navegador</li>
-</ul>
-
-<p><img src="../content/images/2016/12/comunicacionHTTP-1.jpg" alt="Comunicación HTTP"></p>
-
-<p>La realidad es que es un proceso más complejo, ya que la comunicación no se realiza en una única etapa. La información se divide y se envía en pequeños paquetes que son unidos en el destino final, que es lo que establecen las normas o el protocolo <strong>TCP.</strong></p>
-
-<h2 id="qutipodemensajesusahttp">¿Qué tipo de mensajes usa HTTP?</h2>
-
-<p>En HTTP existen 20 <a href="https://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol#M.C3.A9todos_de_petici.C3.B3n">comandos</a> o métodos para acceder a una url, los más importantes son los que usan en las <strong>APIs REST</strong>, que es un tipo de arquitectura que define el uso para cada uno de estos comandos:</p>
-
-<ul>
-<li><code>GET</code> - Para consultar y leer registros.</li>
-<li><code>POST</code> - Para crear registros.</li>
-<li><code>PUT</code> - Para editar registros.</li>
-<li><code>DELETE</code> - Para eliminar registros.</li>
-<li><code>PATCH</code> - Para editar partes concretas de un registro.</li>
-</ul>
-
-<p>Otros comandos que vale la pena destacar son los siguientes:</p>
-
-<ul>
-<li><code>OPTIONS</code> - Nos permite conocer las propiedades de la conexión .</li>
-<li><code>HEAD</code> - Nos devuelve solo las cabeceras del recurso.</li>
-<li><code>TRACE</code> - Se suele usar para depuración, para ver si nuestra petición pasa por servidores intermedios o proxys.</li>
-<li><code>CONNECT</code>- Se usa para saber si un proxy puede funcionar como túnel SSL .</li>
-</ul>
-
-<h2 id="qucabecerasusahttp">¿Qué cabeceras usa HTTP?</h2>
-
-<p>Las <strong>cabeceras</strong> son campos adicionales que acompañan a la petición, existen gran numero de cabeceras, tanto para las peticiones, como para las respuestas HTTP, en este post voy a explicar las principales, en próximos artículos veremos algunas otras como Access-Control-Allow-Origin.</p>
-
-<h3 id="cabecerasdepeticin">Cabeceras de petición</h3>
-
-<div class="overflow-scroll">  
-<table class="table table-striped">
-
-<tbody>
-
-<tr>
-
-<th style="min-width:200px;">Nombre</th>
-
-<th>Descripción</th>
-
-</tr>
-
-<tr>
-
-<td>Accept</td>
-
-<td>Tipo de contenido que acepta el navegador (por ejemplo,_texto/html_). Consulte [Tipos de MIME](https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions)</td>
-
-</tr>
-
-<tr>
-
-<td>Accept-Charset</td>
-
-<td>Conjunto de caracteres que espera el navegador</td>
-
-</tr>
-
-<tr>
-
-<td>Accept-Encoding</td>
-
-<td>Codificación de datos que acepta el navegador</td>
-
-</tr>
-
-<tr>
-
-<td>Accept-Language</td>
-
-<td>Idioma que espera el navegador (idioma por defecto, inglés)</td>
-
-</tr>
-
-<tr>
-
-<td>Authorization</td>
-
-<td>Credenciales de acceso del navegador en el servidor</td>
-
-</tr>
-
-<tr>
-
-<td>Content-Encoding</td>
-
-<td>Tipo de codificación para el cuerpo de la solicitud</td>
-
-</tr>
-
-<tr>
-
-<td>Content-Language</td>
-
-<td>Tipo de idioma en el cuerpo de la solicitud</td>
-
-</tr>
-
-<tr>
-
-<td>Content-Length</td>
-
-<td>Extensión del cuerpo de la solicitud</td>
-
-</tr>
-
-<tr>
-
-<td>Content-Type</td>
-
-<td>Tipo de contenido del cuerpo de la solicitud (por ejemplo,_texto/html_). Consulte [Tipos de MIME](https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions)</td>
-
-</tr>
-
-<tr>
-
-<td>Date</td>
-
-<td>Fecha en que comienza la transferencia de datos</td>
-
-</tr>
-
-<tr>
-
-<td>Forwarded</td>
-
-<td>Utilizado por equipos intermediarios entre el navegador y el servidor</td>
-
-</tr>
-
-<tr>
-
-<td>From</td>
-
-<td>Permite especificar la dirección de correo electrónico del cliente</td>
-
-</tr>
-
-<tr>
-
-<td>From</td>
-
-<td>Permite especificar que debe enviarse el documento si ha sido modificado desde una fecha en particular</td>
-
-</tr>
-
-<tr>
-
-<td>Link</td>
-
-<td>Vínculo entre dos direcciones URL</td>
-
-</tr>
-
-<tr>
-
-<td>Orig-URL</td>
-
-<td>Dirección URL donde se originó la solicitud</td>
-
-</tr>
-
-<tr>
-
-<td>Referer</td>
-
-<td>Dirección URL desde la cual se realizó la solicitud</td>
-
-</tr>
-
-<tr>
-
-<td>User-Agent</td>
-
-<td>Cadena con información sobre el cliente, por ejemplo, el nombre y la versión del navegador y el sistema operativo</td>
-
-</tr>
-
-</tbody>
-
-</table>  
-</div>
-
-<h3 id="cabecerasderespuesta">Cabeceras de respuesta</h3>
-
-<div class="overflow-scroll">  
-<table class="table table-striped">
-
-<tbody>
-
-<tr>
-
-<th style="min-width:200px">Nombre del encabezado</th>
-
-<th>Descripción</th>
-
-</tr>
-
-<tr>
-
-<td>Content-Encoding</td>
-
-<td>Tipo de codificación para el cuerpo de la respuesta</td>
-
-</tr>
-
-<tr>
-
-<td>Content-Language</td>
-
-<td>Tipo de idioma en el cuerpo de la respuesta</td>
-
-</tr>
-
-<tr>
-
-<td>Content-Length</td>
-
-<td>Extensión del cuerpo de la respuesta</td>
-
-</tr>
-
-<tr>
-
-<td>Content-Type</td>
-
-<td>Tipo de contenido del cuerpo de la respuesta (por ejemplo,_texto/html_). Consulte [Tipos de MIME](https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions)</td>
-
-</tr>
-
-<tr>
-
-<td>Date</td>
-
-<td>Fecha en que comienza la transferencia de datos</td>
-
-</tr>
-
-<tr>
-
-<td>Expires</td>
-
-<td>Fecha límite de uso de los datos</td>
-
-</tr>
-
-<tr>
-
-<td>Forwarded</td>
-
-<td>Utilizado por equipos intermediarios entre el navegador y el servidor</td>
-
-</tr>
-
-<tr>
-
-<td>Location</td>
-
-<td>Redireccionamiento a una nueva dirección URL asociada con el documento</td>
-
-</tr>
-
-<tr>
-
-<td>Server</td>
-
-<td>Características del servidor que envió la respuesta</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<h2 id="quesignificacadacdigoderespuestahttp">¿Que significa cada código de respuesta HTTP?</h2>
-
-<p>Los códigos de respuesta indican el resultado de una petición HTTP, están formamos por tres dígitos y los podemos clasificar por el primer dígito, que indica el estado.</p>
-
-<div class="overflow-scroll">  
-<table class="table table-striped">
-
-<tbody>
-
-<tr>
-
-<th style="min-width:100px">Código</th>
-
-<th style="min-width:100px">Mensaje</th>
-
-<th>Descripción</th>
-
-</tr>
-
-<tr>
-
-<th>10x</th>
-
-<th>Mensaje de información</th>
-
-<th>Estos códigos no se utilizan en la versión 1.0 del protocolo</th>
-
-</tr>
-
-<tr>
-
-<th>20x</th>
-
-<th>Éxito</th>
-
-<th>Estos códigos indican la correcta ejecución de la transacción</th>
-
-</tr>
-
-<tr>
-
-<td>200</td>
-
-<td>OK</td>
-
-<td>La solicitud se llevó a cabo de manera correcta</td>
-
-</tr>
-
-<tr>
-
-<td>201</td>
-
-<td>CREATED</td>
-
-<td>Sigue a un comando POST e indica el éxito, la parte restante del cuerpo indica la dirección URL donde se ubicará el documento creado recientemente.</td>
-
-</tr>
-
-<tr>
-
-<td>202</td>
-
-<td>ACCEPTED</td>
-
-<td>La solicitud ha sido aceptada, pero el procedimiento que sigue no se ha llevado a cabo</td>
-
-</tr>
-
-<tr>
-
-<td>203</td>
-
-<td>PARTIAL INFORMATION</td>
-
-<td>Cuando se recibe este código en respuesta a un comando de GET indica que la respuesta no está completa.</td>
-
-</tr>
-
-<tr>
-
-<td>204</td>
-
-<td>NO RESPONSE</td>
-
-<td>El servidor ha recibido la solicitud, pero no hay información de respuesta</td>
-
-</tr>
-
-<tr>
-
-<td>205</td>
-
-<td>RESET CONTENT</td>
-
-<td>El servidor le indica al navegador que borre el contenido en los campos de un formulario</td>
-
-</tr>
-
-<tr>
-
-<td>206</td>
-
-<td>PARTIAL CONTENT</td>
-
-<td>Es una respuesta a una solicitud que consiste en el encabezado _range_. El servidor debe indicar el encabezado _content-Range_</td>
-
-</tr>
-
-<tr>
-
-<th>30x</th>
-
-<th>Redirección</th>
-
-<th>Estos códigos indican que el recurso ya no se encuentra en la ubicación especificada</th>
-
-</tr>
-
-<tr>
-
-<td>301</td>
-
-<td>MOVED</td>
-
-<td>Los datos solicitados han sido transferidos a una nueva dirección</td>
-
-</tr>
-
-<tr>
-
-<td>302</td>
-
-<td>FOUND</td>
-
-<td>Los datos solicitados se encuentran en una nueva dirección URL, pero, no obstante, pueden haber sido trasladados</td>
-
-</tr>
-
-<tr>
-
-<td>303</td>
-
-<td>METHOD</td>
-
-<td>Significa que el cliente debe intentarlo con una nueva dirección; es preferible que intente con otro método en vez de GET</td>
-
-</tr>
-
-<tr>
-
-<td>304</td>
-
-<td>NOT MODIFIED</td>
-
-<td>Si el cliente llevó a cabo un comando GET condicional (con la solicitud relativa a si el documento ha sido modificado desde la última vez) y el documento no ha sido modificado, este código se envía como respuesta.</td>
-
-</tr>
-
-<tr>
-
-<th>40x</th>
-
-<th>Error debido al cliente</th>
-
-<th>Estos códigos indican que la solicitud es incorrecta</th>
-
-</tr>
-
-<tr>
-
-<td>400</td>
-
-<td>BAD REQUEST</td>
-
-<td>La sintaxis de la solicitud se encuentra formulada de manera errónea o es imposible de responder</td>
-
-</tr>
-
-<tr>
-
-<td>401</td>
-
-<td>UNAUTHORIZED</td>
-
-<td>Los parámetros del mensaje aportan las especificaciones de formularios de autorización que se admiten. El cliente debe reformular la solicitud con los datos de autorización correctos</td>
-
-</tr>
-
-<tr>
-
-<td>402</td>
-
-<td>PAYMENT REQUIRED</td>
-
-<td>El cliente debe reformular la solicitud con los datos de pago correctos</td>
-
-</tr>
-
-<tr>
-
-<td>403</td>
-
-<td>FORBIDDEN</td>
-
-<td>El acceso al recurso simplemente se deniega</td>
-
-</tr>
-
-<tr>
-
-<td>404</td>
-
-<td>NOT FOUND</td>
-
-<td>Un clásico. El servidor no halló nada en la dirección especificada. Se ha abandonado sin dejar una dirección para redireccionar... :)</td>
-
-</tr>
-
-<tr>
-
-<th>50x</th>
-
-<th>Error debido al servidor</th>
-
-<th>Estos códigos indican que existe un error interno en el servidor</th>
-
-</tr>
-
-<tr>
-
-<td>500</td>
-
-<td>INTERNAL ERROR</td>
-
-<td>El servidor encontró una condición inesperada que le impide seguir con la solicitud (una de esas cosas que les suceden a los servidores...)</td>
-
-</tr>
-
-<tr>
-
-<td>501</td>
-
-<td>NOT IMPLEMENTED</td>
-
-<td>El servidor no admite el servicio solicitado (no puede saberlo todo...)</td>
-
-</tr>
-
-<tr>
-
-<td>502</td>
-
-<td>BAD GATEWAY</td>
-
-<td>El servidor que actúa como una puerta de enlace o proxy ha recibido una respuesta no válida del servidor al que intenta acceder</td>
-
-</tr>
-
-<tr>
-
-<td>503</td>
-
-<td>SERVICE UNAVAILABLE</td>
-
-<td>El servidor no puede responder en ese momento debido a que se encuentra congestionado (todas las líneas de comunicación se encuentran congestionadas, inténtelo de nuevo más adelante)</td>
-
-</tr>
-
-<tr>
-
-<td>504</td>
-
-<td>GATEWAY TIMEOUT</td>
-
-<td>La respuesta del servidor ha llevado demasiado tiempo en relación al tiempo de espera que la puerta de enlace podía admitir (excedió el tiempo asignado...)</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<h2 id="versioneshttpquecambioshayencadaversin">Versiones HTTP ¿Que cambios hay en cada versión?</h2>
-
-<p>A lo largo de la historia este protocolo se ha ido actualizando, siendo la versión mas usada hoy en día la <strong>1.1</strong></p>
-
-<ul>
-<li>0.9: <strong>Obsoleta</strong>, solo soporta GET, es muy limitado, no indica la versión ni permite cabeceras, por lo que el cliente no puede enviar mucha información al servidor</li>
-<li>1.0: Implementa los métodos GET, POST y HEAD (Aún se usa en algunos servidores proxy)</li>
-<li>1.1: Permite múltiples conexiones a la vez (Por la misma conexión), es la versión <strong>más utilizada</strong>.</li>
-<li>1.2: Iba a ser la siguiente versión pero se descartó :'(</li>
-<li>2: <strong>¡Ha llegado la formula uno!</strong> :D, Esta versión incluye una gran mejora a la hora de la comunicación:
-<ul><li>Solo se crea una <strong>única conexión</strong> para transferir todos objetos HTML, CSS, JavaScript, imágenes, videos … La conexión es persistente, no se cierra.</li>
-<li>Usa la <strong>compresión</strong> y los mensajes se envían directamente en binario, y el dispositivo tarda menos en interpretarlo.</li>
-<li>El servidor puede enviar información antes de solicitarla, a través de una nueva tecnología denominada "<strong>server push</strong>".</li></ul></li>
-</ul>
-
-<h2 id="ltimaversinhttp2">Última versión HTTP/2</h2>
-
-<p>Veamos un pequeño gráfico comparativo de como funciona <strong>HTTP/1.1 y HTTP/2</strong></p>
-
-<p><img src="../content/images/2016/12/HTTP2.jpg" alt></p>
-
-<h2 id="problemasdeseguridadhttp">Problemas de seguridad HTTP</h2>
-
-<p>Hay que tener mucho cuidado con las configuraciones de los servidores, ya que un despiste nos puede hacer caer en las manos de los hackers. Hoy os recomiendo una herramienta online que analiza la configuración de las cabeceras HTTP y nos indica, cuales son las configuraciones que tenemos que mejorar. <a href="https://securityheaders.io/">https://securityheaders.io/</a> Las cabeceras con las que tenemos que revisar son las siguientes:</p>
-
-<ul>
-<li><strong>Server</strong>: Puede poner la versión de nuestro servidor en compromiso, cuanta menos información tenga el atacante. ¡Mejor!</li>
-<li><strong>X-Powered-By</strong>: Indica el framework utilizado por la web, igual que en el caso anterior, cuanta menos información, mejor. :D</li>
-<li><strong>X-Frame-Options</strong>: Nos protege de ataques <a href="https://es.wikipedia.org/wiki/Clickjacking">ClickJacking</a>.</li>
-<li><strong>X-XSS-Protection</strong>: Habilita el uso  del filtro AntiXSS en el navegador.</li>
-<li><strong>X-Content-Type-Options</strong>: Los navegadores, intentan averiguar el tipo de archivo que se está procesando, sin tener en cuenta su extensión. Uno de los problemas es que sistemas de correo envían archivos HTML como TXT y se terminan ejecutando en el navegador. Con este header evitamos que el navegador intente averiguar el MIME Type del documento.</li>
-<li><strong><span style="line-height: 1.5;">Strict-Transport-Policy o <em>*HTTP Strict Transport Security (HSTS)</em></span></strong>*<span style="line-height: 1.5;">: El servidor indica a al navegador que ha de realizar todas las comunicaciónes a través del protocolo HTTPS.</span></li>
-<li><strong>Content-Security-Policy</strong>: Indica una lista blanca de los scripts, plugins o servidores que se pueden utilizar.</li>
-</ul>
-
-<p>Os facilito un pequeño código para poner en el <code>.htaccess</code> del servidor para mejorar algunos aspectos mencionados: </p>
-
-<pre><code class="language-markup">    Header always append X-Frame-Options SAMEORIGIN
+      </div>
+    </header>
+
+    <div id="main" class="content" role="main">
+      <div class="container">
+        <div class="row">
+          <article class="post post post col-md-9">
+            <header class="post-header">
+              <h1 class="post-title text-center hyper lighter bordered-bottom">
+                ¿Cómo funciona el protocolo HTTP?
+              </h1>
+              <div class="post-info text-center small">
+                <time datetime="2016-04-23" class="post-time">23/04/2016</time>
+              </div>
+            </header>
+            <div class="post-body bordered-bottom">
+              <div class="addthis_inline_share_toolbox"></div>
+              <p>
+                Como veíamos en
+                <a href="../que-pasa-cuando-te-conectas-a-una-web/"
+                  >¿Qué pasa cuando te conectas a una web?</a
+                >, HTTP es un protocolo, para la transferencia de contenido HTML
+                "HyperText Markup Language" en su mayoría, entre un cliente y un
+                servidor, indicado mediante una cadena de caracteres o URL
+                "Uniform Resource Locator".
+              </p>
+
+              <h2 id="quesunaurlquindicaunaurl">
+                ¿Qué es una URL?¿Qué indica una URL?
+              </h2>
+
+              <p>
+                Una URL es una cadena que identifica los recursos de una red y
+                se descompone en el siguiente formato:
+              </p>
+
+              <p><strong>esquema://host[:puerto][/ruta][?consulta]</strong></p>
+
+              <p>
+                Algunos de los <strong>esquemas</strong> más usados son los
+                siguientes:
+              </p>
+
+              <ul>
+                <li><code>http</code> - Recursos HTML.</li>
+                <li>
+                  <code>https</code> - HTTP encriptado, para realizar conexiones
+                  seguras, mediante SSL "Secure Sockets Layer".
+                </li>
+                <li><code>ftp</code> - Transferencia de archivos.</li>
+                <li>
+                  <code>mailto</code> - Direcciones de correo electrónico.
+                </li>
+                <li>
+                  <code>file</code> - Recursos disponibles en una red local.
+                </li>
+                <li>
+                  <code>data</code> - Agregar elementos en los documentos (Por
+                  ejemplo imágenes codificadas en base64).
+                </li>
+              </ul>
+
+              <p>
+                <strong>¿Qué indican el resto de los campos?</strong>
+                <strong>Host</strong>: Dominio o Ip del dispositivo a que
+                queremos acceder. <strong>Puerto</strong>: Si no se indica, el
+                puerto por defecto para http es 80. <strong>Ruta</strong>:
+                Indica la carpeta y el recurso al que queremos acceder, los
+                servidores suelen tener configurado recursos por defecto cuando
+                no se indica en la URL, el más común es
+                <strong>index.html</strong>. Otros ejemplos que suelen
+                estar preconfigurados en los servidores son : index.php,
+                index.shtml, index.jsp, default.asp.
+                <strong>Consulta o cadena de búsqueda</strong>: Indica variables
+                a través de la url
+                (<code>?nombre=miguel&amp;apellido=rodriguez</code>)
+              </p>
+
+              <h2 id="cmoserealizalacomunicacinhttp">
+                ¿Cómo se realiza la comunicación HTTP?
+              </h2>
+
+              <p>La comunicación se puede simplificar en estos dos pasos:</p>
+
+              <ul>
+                <li>
+                  El navegador manda una <strong>petición HTTP</strong> y
+                  solicita un archivo
+                </li>
+                <li>
+                  El servidor responde con la información, que es descifrado por
+                  el navegador
+                </li>
+              </ul>
+
+              <p>
+                <img
+                  src="../content/images/2016/12/comunicacionHTTP-1.jpg"
+                  alt="Comunicación HTTP"
+                />
+              </p>
+
+              <p>
+                La realidad es que es un proceso más complejo, ya que la
+                comunicación no se realiza en una única etapa. La información se
+                divide y se envía en pequeños paquetes que son unidos en el
+                destino final, que es lo que establecen las normas o el
+                protocolo <strong>TCP.</strong>
+              </p>
+
+              <h2 id="qutipodemensajesusahttp">
+                ¿Qué tipo de mensajes usa HTTP?
+              </h2>
+
+              <p>
+                En HTTP existen 20
+                <a
+                  href="https://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol#M.C3.A9todos_de_petici.C3.B3n"
+                  >comandos</a
+                >
+                o métodos para acceder a una url, los más importantes son los
+                que usan en las <strong>APIs REST</strong>, que es un tipo de
+                arquitectura que define el uso para cada uno de estos comandos:
+              </p>
+
+              <ul>
+                <li><code>GET</code> - Para consultar y leer registros.</li>
+                <li><code>POST</code> - Para crear registros.</li>
+                <li><code>PUT</code> - Para editar registros.</li>
+                <li><code>DELETE</code> - Para eliminar registros.</li>
+                <li>
+                  <code>PATCH</code> - Para editar partes concretas de un
+                  registro.
+                </li>
+              </ul>
+
+              <p>
+                Otros comandos que vale la pena destacar son los siguientes:
+              </p>
+
+              <ul>
+                <li>
+                  <code>OPTIONS</code> - Nos permite conocer las propiedades de
+                  la conexión .
+                </li>
+                <li>
+                  <code>HEAD</code> - Nos devuelve solo las cabeceras del
+                  recurso.
+                </li>
+                <li>
+                  <code>TRACE</code> - Se suele usar para depuración, para ver
+                  si nuestra petición pasa por servidores intermedios o proxys.
+                </li>
+                <li>
+                  <code>CONNECT</code>- Se usa para saber si un proxy puede
+                  funcionar como túnel SSL .
+                </li>
+              </ul>
+
+              <h2 id="qucabecerasusahttp">¿Qué cabeceras usa HTTP?</h2>
+
+              <p>
+                Las <strong>cabeceras</strong> son campos adicionales que
+                acompañan a la petición, existen gran numero de cabeceras, tanto
+                para las peticiones, como para las respuestas HTTP, en este post
+                voy a explicar las principales, en próximos artículos veremos
+                algunas otras como Access-Control-Allow-Origin.
+              </p>
+
+              <h3 id="cabecerasdepeticin">Cabeceras de petición</h3>
+
+              <div class="overflow-scroll">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th style="min-width: 200px">Nombre</th>
+
+                      <th>Descripción</th>
+                    </tr>
+
+                    <tr>
+                      <td>Accept</td>
+
+                      <td>
+                        Tipo de contenido que acepta el navegador (por
+                        ejemplo,_texto/html_). Consulte [Tipos de
+                        MIME](https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Accept-Charset</td>
+
+                      <td>Conjunto de caracteres que espera el navegador</td>
+                    </tr>
+
+                    <tr>
+                      <td>Accept-Encoding</td>
+
+                      <td>Codificación de datos que acepta el navegador</td>
+                    </tr>
+
+                    <tr>
+                      <td>Accept-Language</td>
+
+                      <td>
+                        Idioma que espera el navegador (idioma por defecto,
+                        inglés)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Authorization</td>
+
+                      <td>
+                        Credenciales de acceso del navegador en el servidor
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Encoding</td>
+
+                      <td>
+                        Tipo de codificación para el cuerpo de la solicitud
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Language</td>
+
+                      <td>Tipo de idioma en el cuerpo de la solicitud</td>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Length</td>
+
+                      <td>Extensión del cuerpo de la solicitud</td>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Type</td>
+
+                      <td>
+                        Tipo de contenido del cuerpo de la solicitud (por
+                        ejemplo,_texto/html_). Consulte [Tipos de
+                        MIME](https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Date</td>
+
+                      <td>Fecha en que comienza la transferencia de datos</td>
+                    </tr>
+
+                    <tr>
+                      <td>Forwarded</td>
+
+                      <td>
+                        Utilizado por equipos intermediarios entre el navegador
+                        y el servidor
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>From</td>
+
+                      <td>
+                        Permite especificar la dirección de correo electrónico
+                        del cliente
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>From</td>
+
+                      <td>
+                        Permite especificar que debe enviarse el documento si ha
+                        sido modificado desde una fecha en particular
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Link</td>
+
+                      <td>Vínculo entre dos direcciones URL</td>
+                    </tr>
+
+                    <tr>
+                      <td>Orig-URL</td>
+
+                      <td>Dirección URL donde se originó la solicitud</td>
+                    </tr>
+
+                    <tr>
+                      <td>Referer</td>
+
+                      <td>
+                        Dirección URL desde la cual se realizó la solicitud
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>User-Agent</td>
+
+                      <td>
+                        Cadena con información sobre el cliente, por ejemplo, el
+                        nombre y la versión del navegador y el sistema operativo
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 id="cabecerasderespuesta">Cabeceras de respuesta</h3>
+
+              <div class="overflow-scroll">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th style="min-width: 200px">Nombre del encabezado</th>
+
+                      <th>Descripción</th>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Encoding</td>
+
+                      <td>
+                        Tipo de codificación para el cuerpo de la respuesta
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Language</td>
+
+                      <td>Tipo de idioma en el cuerpo de la respuesta</td>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Length</td>
+
+                      <td>Extensión del cuerpo de la respuesta</td>
+                    </tr>
+
+                    <tr>
+                      <td>Content-Type</td>
+
+                      <td>
+                        Tipo de contenido del cuerpo de la respuesta (por
+                        ejemplo,_texto/html_). Consulte [Tipos de
+                        MIME](https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Date</td>
+
+                      <td>Fecha en que comienza la transferencia de datos</td>
+                    </tr>
+
+                    <tr>
+                      <td>Expires</td>
+
+                      <td>Fecha límite de uso de los datos</td>
+                    </tr>
+
+                    <tr>
+                      <td>Forwarded</td>
+
+                      <td>
+                        Utilizado por equipos intermediarios entre el navegador
+                        y el servidor
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Location</td>
+
+                      <td>
+                        Redireccionamiento a una nueva dirección URL asociada
+                        con el documento
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Server</td>
+
+                      <td>
+                        Características del servidor que envió la respuesta
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2 id="quesignificacadacdigoderespuestahttp">
+                ¿Que significa cada código de respuesta HTTP?
+              </h2>
+
+              <p>
+                Los códigos de respuesta indican el resultado de una petición
+                HTTP, están formamos por tres dígitos y los podemos clasificar
+                por el primer dígito, que indica el estado.
+              </p>
+
+              <div class="overflow-scroll">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <th style="min-width: 100px">Código</th>
+
+                      <th style="min-width: 100px">Mensaje</th>
+
+                      <th>Descripción</th>
+                    </tr>
+
+                    <tr>
+                      <th>10x</th>
+
+                      <th>Mensaje de información</th>
+
+                      <th>
+                        Estos códigos no se utilizan en la versión 1.0 del
+                        protocolo
+                      </th>
+                    </tr>
+
+                    <tr>
+                      <th>20x</th>
+
+                      <th>Éxito</th>
+
+                      <th>
+                        Estos códigos indican la correcta ejecución de la
+                        transacción
+                      </th>
+                    </tr>
+
+                    <tr>
+                      <td>200</td>
+
+                      <td>OK</td>
+
+                      <td>La solicitud se llevó a cabo de manera correcta</td>
+                    </tr>
+
+                    <tr>
+                      <td>201</td>
+
+                      <td>CREATED</td>
+
+                      <td>
+                        Sigue a un comando POST e indica el éxito, la parte
+                        restante del cuerpo indica la dirección URL donde se
+                        ubicará el documento creado recientemente.
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>202</td>
+
+                      <td>ACCEPTED</td>
+
+                      <td>
+                        La solicitud ha sido aceptada, pero el procedimiento que
+                        sigue no se ha llevado a cabo
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>203</td>
+
+                      <td>PARTIAL INFORMATION</td>
+
+                      <td>
+                        Cuando se recibe este código en respuesta a un comando
+                        de GET indica que la respuesta no está completa.
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>204</td>
+
+                      <td>NO RESPONSE</td>
+
+                      <td>
+                        El servidor ha recibido la solicitud, pero no hay
+                        información de respuesta
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>205</td>
+
+                      <td>RESET CONTENT</td>
+
+                      <td>
+                        El servidor le indica al navegador que borre el
+                        contenido en los campos de un formulario
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>206</td>
+
+                      <td>PARTIAL CONTENT</td>
+
+                      <td>
+                        Es una respuesta a una solicitud que consiste en el
+                        encabezado _range_. El servidor debe indicar el
+                        encabezado _content-Range_
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>30x</th>
+
+                      <th>Redirección</th>
+
+                      <th>
+                        Estos códigos indican que el recurso ya no se encuentra
+                        en la ubicación especificada
+                      </th>
+                    </tr>
+
+                    <tr>
+                      <td>301</td>
+
+                      <td>MOVED</td>
+
+                      <td>
+                        Los datos solicitados han sido transferidos a una nueva
+                        dirección
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>302</td>
+
+                      <td>FOUND</td>
+
+                      <td>
+                        Los datos solicitados se encuentran en una nueva
+                        dirección URL, pero, no obstante, pueden haber sido
+                        trasladados
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>303</td>
+
+                      <td>METHOD</td>
+
+                      <td>
+                        Significa que el cliente debe intentarlo con una nueva
+                        dirección; es preferible que intente con otro método en
+                        vez de GET
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>304</td>
+
+                      <td>NOT MODIFIED</td>
+
+                      <td>
+                        Si el cliente llevó a cabo un comando GET condicional
+                        (con la solicitud relativa a si el documento ha sido
+                        modificado desde la última vez) y el documento no ha
+                        sido modificado, este código se envía como respuesta.
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>40x</th>
+
+                      <th>Error debido al cliente</th>
+
+                      <th>
+                        Estos códigos indican que la solicitud es incorrecta
+                      </th>
+                    </tr>
+
+                    <tr>
+                      <td>400</td>
+
+                      <td>BAD REQUEST</td>
+
+                      <td>
+                        La sintaxis de la solicitud se encuentra formulada de
+                        manera errónea o es imposible de responder
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>401</td>
+
+                      <td>UNAUTHORIZED</td>
+
+                      <td>
+                        Los parámetros del mensaje aportan las especificaciones
+                        de formularios de autorización que se admiten. El
+                        cliente debe reformular la solicitud con los datos de
+                        autorización correctos
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>402</td>
+
+                      <td>PAYMENT REQUIRED</td>
+
+                      <td>
+                        El cliente debe reformular la solicitud con los datos de
+                        pago correctos
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>403</td>
+
+                      <td>FORBIDDEN</td>
+
+                      <td>El acceso al recurso simplemente se deniega</td>
+                    </tr>
+
+                    <tr>
+                      <td>404</td>
+
+                      <td>NOT FOUND</td>
+
+                      <td>
+                        Un clásico. El servidor no halló nada en la dirección
+                        especificada. Se ha abandonado sin dejar una dirección
+                        para redireccionar... :)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>50x</th>
+
+                      <th>Error debido al servidor</th>
+
+                      <th>
+                        Estos códigos indican que existe un error interno en el
+                        servidor
+                      </th>
+                    </tr>
+
+                    <tr>
+                      <td>500</td>
+
+                      <td>INTERNAL ERROR</td>
+
+                      <td>
+                        El servidor encontró una condición inesperada que le
+                        impide seguir con la solicitud (una de esas cosas que
+                        les suceden a los servidores...)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>501</td>
+
+                      <td>NOT IMPLEMENTED</td>
+
+                      <td>
+                        El servidor no admite el servicio solicitado (no puede
+                        saberlo todo...)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>502</td>
+
+                      <td>BAD GATEWAY</td>
+
+                      <td>
+                        El servidor que actúa como una puerta de enlace o proxy
+                        ha recibido una respuesta no válida del servidor al que
+                        intenta acceder
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>503</td>
+
+                      <td>SERVICE UNAVAILABLE</td>
+
+                      <td>
+                        El servidor no puede responder en ese momento debido a
+                        que se encuentra congestionado (todas las líneas de
+                        comunicación se encuentran congestionadas, inténtelo de
+                        nuevo más adelante)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>504</td>
+
+                      <td>GATEWAY TIMEOUT</td>
+
+                      <td>
+                        La respuesta del servidor ha llevado demasiado tiempo en
+                        relación al tiempo de espera que la puerta de enlace
+                        podía admitir (excedió el tiempo asignado...)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2 id="versioneshttpquecambioshayencadaversin">
+                Versiones HTTP ¿Que cambios hay en cada versión?
+              </h2>
+
+              <p>
+                A lo largo de la historia este protocolo se ha ido actualizando,
+                siendo la versión mas usada hoy en día la <strong>1.1</strong>
+              </p>
+
+              <ul>
+                <li>
+                  0.9: <strong>Obsoleta</strong>, solo soporta GET, es muy
+                  limitado, no indica la versión ni permite cabeceras, por lo
+                  que el cliente no puede enviar mucha información al servidor
+                </li>
+                <li>
+                  1.0: Implementa los métodos GET, POST y HEAD (Aún se usa en
+                  algunos servidores proxy)
+                </li>
+                <li>
+                  1.1: Permite múltiples conexiones a la vez (Por la misma
+                  conexión), es la versión <strong>más utilizada</strong>.
+                </li>
+                <li>
+                  1.2: Iba a ser la siguiente versión pero se descartó :'(
+                </li>
+                <li>
+                  2: <strong>¡Ha llegado la formula uno!</strong> :D, Esta
+                  versión incluye una gran mejora a la hora de la comunicación:
+                  <ul>
+                    <li>
+                      Solo se crea una <strong>única conexión</strong> para
+                      transferir todos objetos HTML, CSS, JavaScript, imágenes,
+                      videos … La conexión es persistente, no se cierra.
+                    </li>
+                    <li>
+                      Usa la <strong>compresión</strong> y los mensajes se
+                      envían directamente en binario, y el dispositivo tarda
+                      menos en interpretarlo.
+                    </li>
+                    <li>
+                      El servidor puede enviar información antes de solicitarla,
+                      a través de una nueva tecnología denominada "<strong
+                        >server push</strong
+                      >".
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+              <h2 id="ltimaversinhttp2">Última versión HTTP/2</h2>
+
+              <p>
+                Veamos un pequeño gráfico comparativo de como funciona
+                <strong>HTTP/1.1 y HTTP/2</strong>
+              </p>
+
+              <p><img src="../content/images/2016/12/HTTP2.jpg" alt /></p>
+
+              <h2 id="problemasdeseguridadhttp">Problemas de seguridad HTTP</h2>
+
+              <p>
+                Hay que tener mucho cuidado con las configuraciones de los
+                servidores, ya que un despiste nos puede hacer caer en las manos
+                de los hackers. Hoy os recomiendo una herramienta online que
+                analiza la configuración de las cabeceras HTTP y nos indica,
+                cuales son las configuraciones que tenemos que mejorar.
+                <a href="https://securityheaders.io/"
+                  >https://securityheaders.io/</a
+                >
+                Las cabeceras con las que tenemos que revisar son las
+                siguientes:
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Server</strong>: Puede poner la versión de nuestro
+                  servidor en compromiso, cuanta menos información tenga el
+                  atacante. ¡Mejor!
+                </li>
+                <li>
+                  <strong>X-Powered-By</strong>: Indica el framework utilizado
+                  por la web, igual que en el caso anterior, cuanta menos
+                  información, mejor. :D
+                </li>
+                <li>
+                  <strong>X-Frame-Options</strong>: Nos protege de ataques
+                  <a href="https://es.wikipedia.org/wiki/Clickjacking"
+                    >ClickJacking</a
+                  >.
+                </li>
+                <li>
+                  <strong>X-XSS-Protection</strong>: Habilita el uso  del filtro
+                  AntiXSS en el navegador.
+                </li>
+                <li>
+                  <strong>X-Content-Type-Options</strong>: Los navegadores,
+                  intentan averiguar el tipo de archivo que se está procesando,
+                  sin tener en cuenta su extensión. Uno de los problemas es que
+                  sistemas de correo envían archivos HTML como TXT y se terminan
+                  ejecutando en el navegador. Con este header evitamos que el
+                  navegador intente averiguar el MIME Type del documento.
+                </li>
+                <li>
+                  <strong
+                    ><span style="line-height: 1.5"
+                      >Strict-Transport-Policy o <em
+                        >*HTTP Strict Transport Security (HSTS)</em
+                      ></span
+                    ></strong
+                  >*<span style="line-height: 1.5"
+                    >: El servidor indica a al navegador que ha de realizar
+                    todas las comunicaciónes a través del protocolo HTTPS.</span
+                  >
+                </li>
+                <li>
+                  <strong>Content-Security-Policy</strong>: Indica una lista
+                  blanca de los scripts, plugins o servidores que se pueden
+                  utilizar.
+                </li>
+              </ul>
+
+              <p>
+                Os facilito un pequeño código para poner en el
+                <code>.htaccess</code> del servidor para mejorar algunos
+                aspectos mencionados:
+              </p>
+
+              <pre><code class="language-markup">    Header always append X-Frame-Options SAMEORIGIN
     Header set X-XSS-Protection "1; mode=block"
     Header set X-Content-Type-Options "nosniff"
     Header set Strict-Transport-Security "max-age=31536000" env=HTTPS
 </code></pre>
 
-<p>Y con esto y un bizcocho, esperando el artículo de la semana que viene :D</p>
-          </div>
-
-          <footer class="post-footer">
-
-            <div class="post-share text-center">
-              <p class="light">
-                ¿Te ha gustado este artículo? compartelo para que más gente también pueda leerlo ☺️
+              <p>
+                Y con esto y un bizcocho, esperando el artículo de la semana que
+                viene :D
               </p>
-              <div class="addthis_inline_share_toolbox_ypuz"></div>
             </div>
 
-            <div class="post-author text-center">
+            <footer class="post-footer">
+              <div class="post-share text-center">
+                <p class="light">
+                  ¿Te ha gustado este artículo? compartelo para que más gente
+                  también pueda leerlo ☺️
+                </p>
+                <div class="addthis_inline_share_toolbox_ypuz"></div>
+              </div>
 
-                  <img src="../content/images/2016/11/profile.jpg" itemprop="image" class="post-avatar img-circle img-responsive">
+              <div class="post-author text-center">
+                <img
+                  src="../content/images/2016/11/profile.jpg"
+                  itemprop="image"
+                  class="post-avatar img-circle img-responsive"
+                />
                 <h4 class="bordered-bottom">Miguel Rodríguez</h4>
-                <p>¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo que más me gusta de mi trabajo es estar en constante aprendizaje, al tanto de las últimas noticias y trastear con nuevas ideas.</p>
-            </div>
+                <p>
+                  ¡Hey! Soy Miguel, tengo 24 años y soy desarrollador web, lo
+                  que más me gusta de mi trabajo es estar en constante
+                  aprendizaje, al tanto de las últimas noticias y trastear con
+                  nuevas ideas.
+                </p>
+              </div>
 
-            <div class="post-comments text-center">
-              <div id="disqus_thread"></div>
-              <script>
-                (function() { // DON'T EDIT BELOW THIS LINE
-                  var d = document,
-                    s = d.createElement('script');
-                  s.src = '//miguelra.disqus.com/embed.js';
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-                })();
-              </script>
-            </div>
-
-          </footer>
-
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <div class="reading-time-indicator js-post-sticky-footer">
-    <div class="post-reading-time visible js-post-reading-time">
-      <div class="percent js-percent-count">0%</div>
-      <progress value="0" class="read-progress-indicator single">
-          <div class="progress-container">
-            <span class="progress-bar"></span>
-          </div>
-      </progress>
-      <div class="read-estimation">
-        <div class="read-estimation-content">
-          <div class="title">¿Cómo funciona el protocolo HTTP?</div>
-          <div class="estimated-time">
-            <span class="js-word-count"></span> palabras - <span class="eta"></span>.
-          </div>
+              <div class="post-comments text-center">
+                <div id="disqus_thread"></div>
+                <script>
+                  (function () {
+                    // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                      s = d.createElement("script");
+                    s.src = "//miguelra.disqus.com/embed.js";
+                    s.setAttribute("data-timestamp", +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
+              </div>
+            </footer>
+          </article>
         </div>
       </div>
     </div>
-    <div class="js-prev-next-post prev-next-post">
-      <div class="prev-block">
+
+    <div class="reading-time-indicator js-post-sticky-footer">
+      <div class="post-reading-time visible js-post-reading-time">
+        <div class="percent js-percent-count">0%</div>
+        <progress value="0" class="read-progress-indicator single">
+          <div class="progress-container">
+            <span class="progress-bar"></span>
+          </div>
+        </progress>
+        <div class="read-estimation">
+          <div class="read-estimation-content">
+            <div class="title">¿Cómo funciona el protocolo HTTP?</div>
+            <div class="estimated-time">
+              <span class="js-word-count"></span> palabras -
+              <span class="eta"></span>.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js-prev-next-post prev-next-post">
+        <div class="prev-block">
           <a href="../que-pasa-cuando-te-conectas-a-una-web/">
             <span class="image">
-                <img src="../content/images/2016/12/network-cable-ethernet-computer-159304.jpg" class="post-image-thumbnail">
+              <img
+                src="../content/images/2016/12/network-cable-ethernet-computer-159304.jpg"
+                class="post-image-thumbnail"
+              />
             </span>
             <span class="description">
               <span class="prev-next-label">Anterior</span>
-              <span class="post-title">¿Qué pasa cuando te conectas a una web?</span>
+              <span class="post-title"
+                >¿Qué pasa cuando te conectas a una web?</span
+              >
             </span>
           </a>
-      </div>
-      <div class="next-block">
+        </div>
+        <div class="next-block">
           <a href="../como-funciona-ajax/">
             <span class="image">
-              <img src="../content/images/2016/12/javascript-3.jpg" class="post-image-thumbnail">
+              <img
+                src="../content/images/2016/12/javascript-3.jpg"
+                class="post-image-thumbnail"
+              />
             </span>
             <span class="description">
               <span class="prev-next-label">Siguiente</span>
               <span class="post-title">¿Cómo funciona AJAX?</span>
             </span>
           </a>
+        </div>
       </div>
     </div>
-  </div>
 
-
-<footer id="footer" class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(../content/images/2016/12/background-coding.jpg)">
-    <div class="inner">
+    <footer
+      id="footer"
+      class="blog-background overlay text-center align-middle animated from-top"
+      style="
+        background-image: url(../content/images/2016/12/background-coding.jpg);
+      "
+    >
+      <div class="inner">
         <div class="container">
-
-            <ul class="social-icons">
-              <li>
-                 <a href="https://github.com/miguel-ra">
-                      <i class="icon-github"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://codepen.io/miguelra/">
-                      <i class="icon-codepen"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://twitter.com/theRollerShark">
-                      <i class="icon-twitter"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="http://www.facebook.com/miguelrodriguezamarelle">
-                      <i class="icon-facebook"></i>
-                  </a>
-              </li>
-              <li>
-                 <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
-                      <i class="icon-linkedin"></i>
-                  </a>
-              </li>
-            </ul>
-            <p class="copy-text">
-              Copyright © 2016 MiguelRA.
-            </p>
+          <ul class="social-icons">
+            <li>
+              <a href="https://github.com/miguel-ra">
+                <i class="icon-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/miguelra/">
+                <i class="icon-codepen"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/theRollerShark">
+                <i class="icon-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.facebook.com/miguelrodriguezamarelle">
+                <i class="icon-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://es.linkedin.com/in/miguelrodriguezamarelle">
+                <i class="icon-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="copy-text">Copyright © 2016 MiguelRA.</p>
         </div>
-    </div>
-        <div class="decor-wrapper">
-            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+      </div>
+      <div class="decor-wrapper">
+        <svg
+          id="footer-decor"
+          class="decor top"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="large left"
+            d="M0 0 L50 50 L0 100"
+            fill="rgba(255,255,255, .1)"
+          />
+          <path
+            class="large right"
+            d="M100 0 L50 50 L100 100"
+            fill="rgba(255,255,255, .1)"
+          />
 
-                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"/>
-                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"/>
+          <path
+            class="medium left"
+            d="M0 0 L50 50 L0 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
+          <path
+            class="medium right"
+            d="M100 0 L50 50 L100 66.6"
+            fill="rgba(255,255,255, .3)"
+          />
 
-                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"/>
-                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"/>
+          <path
+            class="small left"
+            d="M0 0 L50 50 L0 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
+          <path
+            class="small right"
+            d="M100 0 L50 50 L100 33.3"
+            fill="rgba(255,255,255, .5)"
+          />
 
-                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"/>
-                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"/>
+          <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)" />
 
-                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"/>
+          <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)" />
+        </svg>
+      </div>
+    </footer>
 
-                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"/>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"
+    ></script>
+    <script type="text/javascript">
+      var load = (function () {
+        function _load(tag) {
+          return function (url) {
+            // This promise will be used by Promise.all to determine success or failure
+            return new Promise(function (resolve, reject) {
+              var element = document.createElement(tag);
+              var parent = "body";
+              var attr = "src";
 
-            </svg>
-        </div>
-</footer>
+              // Important success and error for the promise
+              element.onload = function () {
+                resolve(url);
+              };
+              element.onerror = function () {
+                reject(url);
+              };
 
+              // Need to set different attributes depending on tag type
+              switch (tag) {
+                case "script":
+                  element.async = true;
+                  break;
+                case "link":
+                  element.type = "text/css";
+                  element.rel = "stylesheet";
+                  attr = "href";
+                  parent = "head";
+              }
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              // Inject into document to kick off loading
+              element[attr] = url;
+              document[parent].appendChild(element);
+            });
+          };
+        }
 
-    ga('create', 'UA-44786119-5', 'auto');
-    ga('send', 'pageview');
-</script>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script type="text/javascript" src="../assets/vendor/polyfills/promise.min_v%3D037246b580.js"></script>
-  <script type="text/javascript">
-    var load = (function () {
-      function _load(tag) {
-        return function (url) {
-          // This promise will be used by Promise.all to determine success or failure
-          return new Promise(function (resolve, reject) {
-            var element = document.createElement(tag);
-            var parent = 'body';
-            var attr = 'src';
-
-            // Important success and error for the promise
-            element.onload = function () {
-              resolve(url);
-            };
-            element.onerror = function () {
-              reject(url);
-            };
-
-            // Need to set different attributes depending on tag type
-            switch (tag) {
-              case 'script':
-                element.async = true;
-                break;
-              case 'link':
-                element.type = 'text/css';
-                element.rel = 'stylesheet';
-                attr = 'href';
-                parent = 'head';
-            }
-
-            // Inject into document to kick off loading
-            element[attr] = url;
-            document[parent].appendChild(element);
-          });
+        return {
+          css: _load("link"),
+          js: _load("script"),
         };
-      }
+      })();
 
-      return {
-        css: _load('link'),
-        js: _load('script')
-      }
-    })();
+      (function loadFiles() {
+        load.css("/assets/vendor/prism/css/prism.css?v=037246b580");
+        load.css("/assets/vendor/sweetalert/sweetalert.css?v=037246b580");
 
-
-    (function loadFiles() {
-      load.css('/assets/vendor/prism/css/prism.css?v=037246b580');
-      load.css('/assets/vendor/sweetalert/sweetalert.css?v=037246b580');
-
-      Promise.all([
-        load.js('/assets/vendor/polyfills/fetch.min.js?v=037246b580'),
-        load.js('/assets/vendor/waypoints/waypoints.min.js?v=037246b580'),
-        load.js('/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580'),
-        load.js('/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580'),
-        load.js('/assets/vendor/readingtime/readingtime.min.js?v=037246b580'),
-        load.js('/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580'),
-        load.js('/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580'),
-        load.js('https://cookies.miguelra.com/miguelraCookies.js')
-      ]).then(function () {
-        load.js('/assets/js/script.js?v=037246b580').then(function () {
-          load.js('//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1');
-          load.js('/assets/vendor/prism/js/prism.min.js?v=037246b580');
-          miguelraCookies({ server: "miguelra.com", color: "666666" });
+        Promise.all([
+          load.js("/assets/vendor/polyfills/fetch.min.js?v=037246b580"),
+          load.js("/assets/vendor/waypoints/waypoints.min.js?v=037246b580"),
+          load.js("/assets/vendor/bootstrap/bootstrap.min.js?v=037246b580"),
+          load.js("/assets/vendor/sweetalert/sweetalert.min.js?v=037246b580"),
+          load.js("/assets/vendor/readingtime/readingtime.min.js?v=037246b580"),
+          load.js("/assets/vendor/ghosthunter/ghostHunter.min.js?v=037246b580"),
+          load.js(
+            "/assets/vendor/imagesloaded/imagesloaded.min.js?v=037246b580"
+          ),
+          ,
+        ]).then(function () {
+          load.js("/assets/js/script.js?v=037246b580").then(function () {
+            load.js(
+              "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584883ec5377771d&domready=1"
+            );
+            load.js("/assets/vendor/prism/js/prism.min.js?v=037246b580");
+          });
         });
-      });
-    }());
-  </script>
-</body>
-
+      })();
+    </script>
+  </body>
 </html>
